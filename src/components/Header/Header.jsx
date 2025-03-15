@@ -1,13 +1,9 @@
 import "./Header.css";
 import { Link } from "react-router-dom";
 
-import CurrentUserContext from "../../contexts/CurrentUserContext";
-import { useContext } from "react";
 import Navigation from "../Navigation/Navigation";
 
 function Header() {
-  const currentUser = useContext(CurrentUserContext);
-
   return (
     <header className="header">
       <Link to="/">
