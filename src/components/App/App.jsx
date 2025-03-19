@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./App.css";
 
 import Header from "../Header/Header";
+import SearchForm from "../SearchForm/SearchForm";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,6 +13,7 @@ function App() {
     <div className="page">
       <div className="page__content"></div>
       <Header></Header>
+      <SearchForm></SearchForm>
     </div>
   );
 }
