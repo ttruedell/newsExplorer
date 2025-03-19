@@ -6,6 +6,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
 import About from "../About/About";
+import Footer from "../Footer/Footer";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,6 +17,7 @@ function App() {
       <Header></Header>
       <SearchForm></SearchForm>
       <About></About>
+      <Footer></Footer>
     </div>
   );
 }
