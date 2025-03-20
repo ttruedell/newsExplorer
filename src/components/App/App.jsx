@@ -5,8 +5,10 @@ import "./App.css";
 
 import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
+import Main from "../Main/Main";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,10 +16,13 @@ function App() {
   return (
     <div className="page">
       <div className="page__content"></div>
-      <Header></Header>
-      <SearchForm></SearchForm>
-      <About></About>
-      <Footer></Footer>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Main />}></Route>
+        <Route path="/saved-news"></Route>
+      </Routes>
+
+      <Footer />
     </div>
   );
 }
