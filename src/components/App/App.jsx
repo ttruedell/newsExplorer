@@ -1,25 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import reactLogo from "../../assets/react.svg";
 // import viteLogo from "/vite.svg";
 import "./App.css";
 
 import Header from "../Header/Header";
-import SearchForm from "../SearchForm/SearchForm";
 import Main from "../Main/Main";
-import About from "../About/About";
 import Footer from "../Footer/Footer";
+import ArticleSection from "../ArticlesSection/ArticleSection";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
     <div className="page">
       <div className="page__content"></div>
       <Header />
       <Routes>
         <Route path="/" element={<Main />}></Route>
-        <Route path="/saved-news"></Route>
+        <Route path="/saved-news" element={<ArticleSection />}></Route>
       </Routes>
 
       <Footer />
