@@ -3,9 +3,9 @@ import creator from "../../assets/placeholder-image.jpg";
 
 function About() {
   return (
-    <section>
+    <section className="about">
       <img src={creator} alt="creator_image" className="about__image" />
-      <div>
+      <div className="about__content">
         <h1>About the Author</h1>
         <p>
           This block describes the project author. Here you should indicate your

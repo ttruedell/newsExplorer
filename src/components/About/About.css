@@ -1,7 +1,21 @@
+.about {
+  display: flex;
+  flex-wrap: row;
+  align-items: center;
+  margin: 0;
+  padding: 80px 104px
+  
+}
+
 .about__image {
   height: 264px;
   width: 264px;
   border-radius: 50%;
+}
+
+.about__content {
+  margin: 0 0 0 56px;
+  text-align: left;
 }
 
 /*the author_image needs to be 464px * 464px; change later
