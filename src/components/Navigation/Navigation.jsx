@@ -8,7 +8,7 @@ function Navigation() {
   const currentUser = useContext(CurrentUserContext);
 
   return (
-    <div>
+    <div className="navigation">
       {currentUser ? (
         <Link to="/profile" className="navigation__links">
           <div className="navigation__user-container">

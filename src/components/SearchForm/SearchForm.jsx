@@ -1,9 +1,16 @@
 import "./SearchForm.css";
+import background from "../../assets/search-form-background.svg";
 
 function SearchForm() {
   return (
-    <div>
-      <form action="" className="search-form">
+    // <section>
+    <form action="" className="search-form">
+      <img
+        src={background}
+        alt="search-form-background"
+        className="search-form__background"
+      />
+      <div className="search-form__content">
         <h1 className="search-form__header">What's going on in the world?</h1>
         <p className="search-form__subheader">
           Find the latest news on any topic and save then in your personal
@@ -17,8 +24,9 @@ function SearchForm() {
           />
           <button>Search</button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
+    // </section>
   );
 }
 

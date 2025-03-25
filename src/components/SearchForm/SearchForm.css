@@ -1,0 +1,25 @@
+.search-form {
+  max-width: 1440px;
+  height: 576px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form__background {
+  /* background-image: "../../assets/search-form-background.svg"; */
+  max-width: 1440px;
+  height: 576px;
+  position: absolute;
+  z-index: 0;
+}
+
+.search-form__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  z-index: 99;
+  color: #fff;
+}

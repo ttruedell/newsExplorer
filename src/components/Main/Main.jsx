@@ -4,7 +4,7 @@ import About from "../About/About";
 
 function Main() {
   return (
-    <main>
+    <main className="main">
       <SearchForm />
       <About />
     </main>
