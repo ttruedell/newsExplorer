@@ -23,4 +23,19 @@
   z-index: 99;
   color: #fff;
   text-align: center;
+  letter-spacing: 0;
+}
+
+.search-form__header {
+  max-width: 608px;
+  line-height: 64px;
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  font-size: 60px;
+  text-align: left;
+}
+
+.search-form__subheader {
+  font-family: "Roboto";
+  font-size: 18px;
 }
