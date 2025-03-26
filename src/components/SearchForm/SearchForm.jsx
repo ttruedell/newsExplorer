@@ -16,13 +16,13 @@ function SearchForm() {
           Find the latest news on any topic and save then in your personal
           account.
         </p>
-        <div>
+        <div className="search-form__input-container">
           <input
             type="text"
             placeholder="Enter topic"
             className="search-form__input"
           />
-          <button>Search</button>
+          <button className="search-form__button">Search</button>
         </div>
       </div>
     </form>

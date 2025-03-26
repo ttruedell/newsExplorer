@@ -39,3 +39,44 @@
   font-family: "Roboto";
   font-size: 18px;
 }
+
+.search-form__input-container {
+  max-width: 608px;
+  max-height: 64px;
+  /* padding: 21px 208px 21px 24px; */
+  display: flex;
+  flex-direction: wrap;
+  justify-content: left;
+  position: relative;
+  border-radius: 100px;
+  background-color: #fff;
+  border-width: 0;
+  font-family: "Roboto";
+}
+
+.search-form__input {
+  /* width: 608px;
+  height: 64px; */
+  margin: 0;
+  width: 400px;
+  padding: 21px 0px 21px 24px;
+  border-radius: 100px;
+  /* border-color: transparent; */
+  border-width: 0;
+  outline: none;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.search-form__button {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 168px;
+  border-radius: 100px;
+  border-width: 0;
+  background-color: #2f71e5;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+}
