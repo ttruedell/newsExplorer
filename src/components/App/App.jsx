@@ -13,14 +13,15 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   return (
     <div className="page">
-      <div className="page__content"></div>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Main />}></Route>
-        <Route path="/saved-news" element={<ArticleSection />}></Route>
-      </Routes>
+      <div className="page__content">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/saved-news" element={<ArticleSection />}></Route>
+        </Routes>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }

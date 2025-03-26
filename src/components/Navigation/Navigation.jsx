@@ -19,8 +19,8 @@ function Navigation() {
         </Link>
       ) : (
         <div className="navigation__sign-in">
-          <button>Home</button>
-          <button>Sign In</button>
+          <button className="navigation__home-button">Home</button>
+          <button className="navigation__sign-in-button">Sign In</button>
         </div>
       )}
     </div>

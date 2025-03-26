@@ -8,7 +8,6 @@
 }
 
 .search-form__background {
-  /* background-image: "../../assets/search-form-background.svg"; */
   max-width: 1440px;
   height: 576px;
   position: absolute;
@@ -42,7 +41,7 @@
 
 .search-form__input-container {
   max-width: 608px;
-  max-height: 64px;
+  height: 64px;
   /* padding: 21px 208px 21px 24px; */
   display: flex;
   flex-direction: wrap;
