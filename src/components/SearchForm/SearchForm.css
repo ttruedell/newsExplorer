@@ -42,7 +42,6 @@
 .search-form__input-container {
   max-width: 608px;
   height: 64px;
-  /* padding: 21px 208px 21px 24px; */
   display: flex;
   flex-direction: wrap;
   justify-content: left;
@@ -54,13 +53,10 @@
 }
 
 .search-form__input {
-  /* width: 608px;
-  height: 64px; */
   margin: 0;
   width: 400px;
   padding: 21px 0px 21px 24px;
   border-radius: 100px;
-  /* border-color: transparent; */
   border-width: 0;
   outline: none;
   font-weight: 400;
@@ -78,4 +74,5 @@
   color: #fff;
   font-weight: 500;
   font-size: 18px;
+  cursor: pointer;
 }
