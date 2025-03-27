@@ -3,11 +3,17 @@ import { Link } from "react-router-dom";
 
 import Navigation from "../Navigation/Navigation";
 
+import { useLocation } from "react-router-dom";
+
 function Header() {
+  const location = useLocation();
+
+  const isHome = location.pathname === "/";
+
   return (
-    <header className="header">
-      <div className="header__content">
-        <Link to="/" className="header__logo">
+    <header className={isHome ? "header" : "header-saved"}>
+      <div className={isHome ? "header__content" : "header-saved__content"}>
+        <Link to="/" className={isHome ? "header__logo" : "header-saved__logo"}>
           <p>NewsExplorer</p>
         </Link>
         {/* <Link to="/">

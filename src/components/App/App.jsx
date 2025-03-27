@@ -11,6 +11,13 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+
+  // function changeHeader {
+  //   if (loggedIn) {
+
+  //   }
+  // }
+
   return (
     <div className="page">
       <div className="page__content">
