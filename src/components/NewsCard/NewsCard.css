@@ -1,0 +1,76 @@
+.news-card {
+  display: flex;
+  flex-direction: wrap;
+  position: relative;
+  width: 400px;
+  height: 576px;
+}
+
+.news-card__header-container {
+  position: absolute;
+  display: flex;
+  flex-direction: wrap;
+  align-items: center;
+  /* justify-content: center; */
+  width: 100%;
+  font-family: "Roboto";
+  font-weight: 500;
+  /* padding: 24px 24px 0 24px; */
+  top: 24px;
+}
+
+.news-card__keyword {
+  padding: 8px 22px;
+  /* margin: 0 auto 0 0; */
+  margin: 0 0 0 24px;
+  border-radius: 10px;
+  background-color: #fff;
+  /* font-family: "Roboto";
+  font-weight: 500; */
+  font-size: 14px;
+}
+
+.news-card__confirm-remove {
+  padding: 11px 26px;
+  margin: 0 0 0 auto;
+  border-radius: 10px;
+  background-color: #fff;
+  /* font-family: "Roboto";
+  font-weight: 500; */
+  font-size: 12px;
+  /* opacity: 0;
+  transition: opacity 0.5s ease-in-out; */
+}
+
+.news-card__remove-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 24px 0 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border-color: transparent;
+  background-color: #fff;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.news-card__remove-icon {
+  height: 19px;
+  width: 18px;
+  margin: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.news-card__remove-icon:hover {
+  opacity: 0.5;
+}
+
+.news-card__image {
+  width: 400px;
+  height: 272px;
+}
