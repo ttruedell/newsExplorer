@@ -68,13 +68,13 @@
   margin: 0;
   padding: 0;
   margin: 0;
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+  /* opacity: 1;
+  transition: opacity 0.5s ease-in-out; */
 }
 
-.news-card__remove-icon:hover {
+/* .news-card__remove-icon:hover {
   opacity: 0.5;
-}
+} */
 
 .news-card__content {
   background-color: #fff;

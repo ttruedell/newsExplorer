@@ -42,11 +42,17 @@ function NewsCard() {
               Remove from saved
             </h2>
 
-            <button className="news-card__remove-btn">
+            <button
+              className="news-card__remove-btn"
+              onMouseEnter={() => setShowConfirm(true)}
+              onMouseLeave={() => setShowConfirm(false)}
+            >
               <img
-                onMouseEnter={() => setShowConfirm(true)}
-                onMouseLeave={() => setShowConfirm(false)}
                 className="news-card__remove-icon"
+                style={{
+                  opacity: showConfirm ? 0.5 : 1,
+                  transition: "opacity 0.5s ease-in-out",
+                }}
                 src={remove}
                 alt="remove-icon"
               />
