@@ -1,5 +1,6 @@
 .news-cards {
   background-color: #f5f6f7;
+  /* background-color: #000; */
   padding: 62px 104px;
 }
 
@@ -9,7 +10,6 @@
   position: relative;
   width: 400px;
   height: 576px;
-  /* background-color: #fff; */
 }
 
 .news-card__header-container {
@@ -17,22 +17,17 @@
   display: flex;
   flex-direction: wrap;
   align-items: center;
-  /* justify-content: center; */
   width: 100%;
   font-family: "Roboto";
   font-weight: 500;
-  /* padding: 24px 24px 0 24px; */
   top: 24px;
 }
 
 .news-card__keyword {
   padding: 8px 22px;
-  /* margin: 0 auto 0 0; */
   margin: 0 0 0 24px;
   border-radius: 10px;
   background-color: #fff;
-  /* font-family: "Roboto";
-  font-weight: 500; */
   font-size: 14px;
 }
 
@@ -41,11 +36,7 @@
   margin: 0 0 0 auto;
   border-radius: 10px;
   background-color: #fff;
-  /* font-family: "Roboto";
-  font-weight: 500; */
   font-size: 12px;
-  /* opacity: 0;
-  transition: opacity 0.5s ease-in-out; */
 }
 
 .news-card__remove-btn {
@@ -68,16 +59,13 @@
   margin: 0;
   padding: 0;
   margin: 0;
-  /* opacity: 1;
-  transition: opacity 0.5s ease-in-out; */
 }
 
-/* .news-card__remove-icon:hover {
-  opacity: 0.5;
-} */
-
 .news-card__content {
+  position: relative;
   background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .news-card__image {
@@ -86,11 +74,10 @@
 }
 
 .news-card__article {
-  margin: 24px;
-  padding: 0px;
+  padding: 17px 24px 0px 24px;
   font-family: "Roboto Slab";
   font-size: 26px;
-  font-weight: 400;
+  /* font-weight: 400; */
   line-height: 30px;
   letter-spacing: 0;
 }
@@ -101,24 +88,48 @@
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0;
+  color: #bcbcbf;
 }
 
 .news-card__title {
-  margin: 0;
-  padding: 15px 0;
+  /* display: flex;
+  flex-direction: row; */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+
+  margin: 16px 0;
+  padding: 0;
+  font-size: 26px;
+  font-weight: 400;
+  max-height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .news-card__text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+
   margin: 0;
   font-family: "Roboto";
   font-size: 16px;
   line-height: 22px;
+  max-height: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .news-card__author {
+  position: absolute;
+  bottom: 24px;
   margin: 0;
   font-weight: 700;
   font-size: 16px;
   letter-spacing: 0.4px;
-  padding: 18px 0 0 0;
+  line-height: 20px;
+  color: #bcbcbf;
 }

@@ -68,11 +68,12 @@ function NewsCard() {
           />
           <article className="news-card__article">
             <p className="news-card__date">November 8, 2024</p>
-            <h2 className="news-card__title">Placeholder</h2>
+            <h2 className="news-card__title">
+              Nostalgic Photos of Tourists in U.S. National Parks
+            </h2>
             <p className="news-card__text">
               Lorem ipsum dolor sit amet. Ut repellendus voluptatum sed unde
               dignissimos qui quos reprehenderit aut neque ipsa. At officiis
-              exercitationem quod qui molestias consectetur id odio nihil ea
               sint voluptates. Et voluptas quam est ducimus quae et voluptatem
               quam vel numquam optio a tempore ducimus?
             </p>
