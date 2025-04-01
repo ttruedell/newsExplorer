@@ -27,6 +27,7 @@
   font-family: "Roboto";
   font-weight: 500;
   top: 24px;
+  z-index: 99;
 }
 
 .news-card__keyword {
