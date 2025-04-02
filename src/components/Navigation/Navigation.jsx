@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 
 import signout from "../../assets/sign-out-icon.jpg";
 
-function Navigation() {
+function Navigation({ loginClick }) {
   const isHome = location.pathname === "/";
 
   return (
@@ -17,7 +17,9 @@ function Navigation() {
           <Link to="/">
             <button className="navigation__home_signed-out">Home</button>
           </Link>
-          <button className="navigation__sign-in">Sign In</button>
+          <button onClick={loginClick} className="navigation__sign-in">
+            Sign In
+          </button>
         </div>
       ) : (
         <div className="navigation__user">

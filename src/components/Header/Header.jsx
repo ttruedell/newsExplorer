@@ -5,7 +5,7 @@ import Navigation from "../Navigation/Navigation";
 
 import { useLocation } from "react-router-dom";
 
-function Header() {
+function Header({ loginClick }) {
   const location = useLocation();
 
   const isHome = location.pathname === "/";
@@ -16,7 +16,7 @@ function Header() {
         <Link to="/" className={isHome ? "header__logo" : "header-saved__logo"}>
           <p>NewsExplorer</p>
         </Link>
-        <Navigation />
+        <Navigation loginClick={loginClick} />
       </div>
     </header>
   );

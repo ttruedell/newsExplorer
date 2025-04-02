@@ -81,7 +81,7 @@ function App() {
   return (
     <div className="page">
       <div className="page__content">
-        <Header />
+        <Header loginClick={handleLoginClick} />
         <Routes>
           <Route path="/" element={<Main />}></Route>
           <Route path="/saved-news" element={<ArticleSection />}></Route>
