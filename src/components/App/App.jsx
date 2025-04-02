@@ -7,11 +7,12 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ArticleSection from "../ArticlesSection/ArticleSection";
+import LoginModal from "../LoginModal/LoginModal";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [activeModal, setActiveModal] = useState("");
+  const [activeModal, setActiveModal] = useState("login");
 
   const handleSignUpClick = () => {
     setActiveModal("register");
@@ -56,6 +57,21 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+
+    if (activeModal) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeModal]);
   // function changeHeader {
   //   if (loggedIn) {
 
@@ -70,9 +86,13 @@ function App() {
           <Route path="/" element={<Main />}></Route>
           <Route path="/saved-news" element={<ArticleSection />}></Route>
         </Routes>
-
         <Footer />
       </div>
+      <LoginModal
+        isOpen={activeModal === "login"}
+        handleCloseModal={handleModalClose}
+        onSwitchModal={handleUserModal}
+      />
     </div>
   );
 }
