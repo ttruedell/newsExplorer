@@ -15,15 +15,15 @@ const LoginModal = ({ isOpen, handleCloseModal, onSwitchModal }) => {
       onClose={handleCloseModal}
       name="SignInForm"
       title="Sign in"
-      buttonTextSubmit="sign in"
-      buttonTextSwitch="or Sign up"
+      buttonTextSubmit="Sign in"
+      buttonTextSwitch="Sign up"
       onSwitchModal={onSwitchModal}
     >
       <label className="modal__label">
-        Email
+        <p className="modal__input-header">Email</p>
         <input
           type="email"
-          className="modal__input"
+          className="modal__input modal__input_email"
           id="email"
           placeholder="Enter email"
           value={email}
@@ -32,10 +32,10 @@ const LoginModal = ({ isOpen, handleCloseModal, onSwitchModal }) => {
         />
       </label>
       <label className="modal__label">
-        Password
+        <p className="modal__input-header">Password</p>
         <input
           type="text"
-          className="modal__input"
+          className="modal__input modal__input_password"
           id="password"
           placeholder="Enter password"
           value={password}

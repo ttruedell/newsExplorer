@@ -30,6 +30,7 @@ function ModalWithForm({
               type="button"
               onClick={onSwitchModal}
             >
+              <pre className="modal__switch-modal__text">or </pre>
               {buttonTextSwitch}
             </button>
           }
