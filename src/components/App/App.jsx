@@ -38,7 +38,7 @@ function App() {
     } else if (event.type === "click") {
       if (
         (!event.target.closest(".modal__content") &&
-          event.target.classList.contains("modal")) ||
+          event.target.closest("modal__switch-modal")) ||
         event.target.closest(".modal__close-btn")
       ) {
         closeActiveModal();
@@ -72,11 +72,6 @@ function App() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [activeModal]);
-  // function changeHeader {
-  //   if (loggedIn) {
-
-  //   }
-  // }
 
   return (
     <div className="page">

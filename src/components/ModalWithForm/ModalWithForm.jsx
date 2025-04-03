@@ -1,4 +1,5 @@
 import "./ModalWithForm.css";
+import close from "../../assets/close.png";
 
 function ModalWithForm({
   isOpen,
@@ -16,22 +17,29 @@ function ModalWithForm({
     >
       <div className="modal__content">
         <h2 className="modal__header">{title}</h2>
-        <button
+        {/* <button className="modal__close-btn" type="button" onClick={onClose}> */}
+        <img
           className="modal__close-btn"
           type="button"
           onClick={onClose}
-        ></button>
+          src={close}
+          alt="close-btn"
+        />
+        {/* </button> */}
         <form onSubmit={(e) => e.preventDefault()}>
           {children}
           <button className="modal__submit">{buttonTextSubmit}</button>
           {
-            <button
-              className="modal__switch-modal"
-              type="button"
-              onClick={onSwitchModal}
-            >
-              <pre className="modal__switch-modal__text">or </pre>
-              {buttonTextSwitch}
+            <button className="modal__switch-modal" type="button">
+              <pre className="modal__switch-text modal__switch-text_or">
+                or{" "}
+              </pre>
+              <p
+                className="modal__switch-text modal__switch-text_signin"
+                onClick={onSwitchModal}
+              >
+                {buttonTextSwitch}
+              </p>
             </button>
           }
         </form>

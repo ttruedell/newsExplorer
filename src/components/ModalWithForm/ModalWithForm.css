@@ -25,14 +25,14 @@
 
 .modal__close-btn {
   position: absolute;
-  top: 20px;
-  right: 28px;
+  top: -40px;
+  right: -40px;
   margin: 0;
   padding: 0;
   border: 0;
   background-color: transparent;
-  height: 20px;
-  width: 20px;
+  height: 40px;
+  width: 40px;
   cursor: pointer;
 }
 
@@ -41,6 +41,7 @@
   border-radius: 16px;
   position: relative;
   background-color: #fff;
+  height: 380px;
   max-width: 430px;
   width: 100%;
   box-sizing: border-box;
@@ -48,7 +49,7 @@
 }
 
 .modal__header {
-  margin: 0 0 22px 0;
+  margin: 0;
   font-family: "Roboto";
   font-size: 24px;
   font-weight: 700;
@@ -57,11 +58,7 @@
 }
 
 /* .modal__label {
-  font-family: "Inter";
-  font-weight: 400;
-  font-size: 12px;
   height: 47px;
-  margin: 22px 0;
 } */
 
 .modal__input-header {
@@ -69,17 +66,23 @@
   font-weight: 400;
   font-size: 12px;
 
-  margin: 22px 0 8px 0;
+  margin: 22px 0 0 0;
   color: #2f71e5;
 }
 
+.modal__input-header {
+  margin: 31px 0 0 0;
+}
+
 .modal__input {
+  padding: 9px 0 10px 0;
   font-family: "Inter";
   font-weight: 400;
   font-size: 14px;
   width: 358px;
   border-style: none;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  outline: none;
 }
 
 .modal__input_password {
@@ -89,17 +92,21 @@
 .modal__form {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   width: 100%;
 }
 
 .modal__submit {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: 18px;
   margin-bottom: 16px;
   padding: 0;
   width: 100%;
   height: 64px;
   border-radius: 100px;
   border: none;
+  color: #fff;
+  background-color: #2f71e5;
   cursor: pointer;
 }
 
@@ -110,18 +117,26 @@
   margin: 0;
   height: 20px;
 
-  font-family: "Inter";
-  font-weight: 400;
-  font-size: 14px;
-
   width: 100%;
   padding: 0;
   border: none;
   background-color: transparent;
   color: #2f71e5;
-  cursor: pointer;
 }
 
-.modal__switch-modal__text {
+.modal__switch-text {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.modal__switch-text_or {
   margin: 0;
+  color: #000;
+  cursor: default;
+}
+
+.modal__switch-text_signin {
+  margin: 0;
+  cursor: pointer;
 }
