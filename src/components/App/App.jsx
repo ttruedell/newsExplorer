@@ -73,6 +73,11 @@ function App() {
     };
   }, [activeModal]);
 
+  function validateEmail(email) {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return regex.test(email);
+  }
+
   return (
     <div className="page">
       <div className="page__content">
@@ -87,6 +92,7 @@ function App() {
         isOpen={activeModal === "login"}
         handleCloseModal={handleModalClose}
         onSwitchModal={handleUserModal}
+        validateEmail={validateEmail}
       />
     </div>
   );
