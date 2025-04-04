@@ -4,9 +4,9 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const LoginModal = ({
   isOpen,
   handleCloseModal,
-  //   handleModalClick,
   onSwitchModal,
   validateEmail,
+  handleLogin,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,6 +37,10 @@ const LoginModal = ({
       buttonTextSwitch="Sign up"
       onSwitchModal={onSwitchModal}
       isSubmitDisabled={isSubmitDisabled}
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleLogin({ email, password });
+      }}
     >
       <label className="modal__label">
         <p className="modal__input-header">Email</p>

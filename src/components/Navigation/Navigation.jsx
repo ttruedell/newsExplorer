@@ -6,10 +6,11 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import logout from "../../assets/logout.png";
 import logout_home from "../../assets/logout2.png";
 
-function Navigation({ loginClick, loggedIn }) {
+function Navigation({ loginClick, loggedIn, handleLogout, currentUser }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const areSavedArticles = location.pathname === "/saved-news";
+  const username = currentUser?.username || "User";
 
   return (
     <div className="navigation">
@@ -37,9 +38,9 @@ function Navigation({ loginClick, loggedIn }) {
             className={`navigation__sign-out ${
               areSavedArticles ? "navigation__active" : ""
             }`}
+            onClick={handleLogout}
           >
-            {/* <p className="navigation__username">Elise</p> */}
-            Elise
+            {username}
             <img
               className={`navigation__sign-out-icon ${
                 areSavedArticles ? "navigation__active" : ""

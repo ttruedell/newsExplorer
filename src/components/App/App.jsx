@@ -10,9 +10,11 @@ import ArticleSection from "../ArticlesSection/ArticleSection";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 
+import { signUp, signIn } from "../../utils/auth";
+
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [activeModal, setActiveModal] = useState("");
 
   const handleRegisterClick = () => {
@@ -21,6 +23,33 @@ function App() {
 
   const handleLoginClick = () => {
     setActiveModal("login");
+  };
+
+  const handleLogin = ({ email, password }) => {
+    // signIn({ email, password })
+    //   .then((userData) => {
+    //     setLoggedIn(true);
+    //     setCurrentUser(userData);
+    //     closeActiveModal();
+    //   })
+    //   .catch((err) => console.error("Login failed:", err));
+    setLoggedIn(true);
+    setCurrentUser({ username: "Elise", email }); // Simulated user
+    closeActiveModal();
+  };
+
+  const handleRegister = (values) => {
+    // signUp(values)
+    //   .then(() => handleLogin(values))
+    //   .catch((err) => console.error("Registration failed:", err));
+    setTimeout(() => {
+      handleLogin({ email, password });
+    }, 500);
+  };
+
+  const handleLogout = () => {
+    setCurrentUser(null);
+    setLoggedIn(false);
   };
 
   const closeActiveModal = (event) => {
@@ -77,7 +106,12 @@ function App() {
   return (
     <div className="page">
       <div className="page__content">
-        <Header loginClick={handleLoginClick} loggedIn={loggedIn} />
+        <Header
+          loginClick={handleLoginClick}
+          loggedIn={loggedIn}
+          handleLogout={handleLogout}
+          currentUser={currentUser}
+        />
         <Routes>
           <Route path="/" element={<Main />}></Route>
           <Route path="/saved-news" element={<ArticleSection />}></Route>
@@ -89,12 +123,14 @@ function App() {
         handleCloseModal={handleModalClose}
         onSwitchModal={handleUserModal}
         validateEmail={validateEmail}
+        handleLogin={handleLogin}
       />
       <RegisterModal
         isOpen={activeModal === "register"}
         handleCloseModal={handleModalClose}
         onSwitchModal={handleUserModal}
         validateEmail={validateEmail}
+        handleRegister={handleRegister}
       />
     </div>
   );

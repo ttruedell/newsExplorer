@@ -4,9 +4,9 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const RegisterModal = ({
   isOpen,
   handleCloseModal,
-  handleModalClick,
   onSwitchModal,
   validateEmail,
+  handleRegister,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,6 +40,10 @@ const RegisterModal = ({
       buttonTextSwitch="Sign in"
       onSwitchModal={onSwitchModal}
       isSubmitDisabled={isSubmitDisabled}
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleRegister({ username, email, password });
+      }}
     >
       <label className="modal__label">
         <p className="modal__input-header">Email</p>

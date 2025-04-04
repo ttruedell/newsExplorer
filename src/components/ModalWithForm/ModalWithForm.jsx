@@ -11,6 +11,7 @@ function ModalWithForm({
   buttonTextSwitch,
   onSwitchModal,
   isSubmitDisabled,
+  onSubmit,
 }) {
   return (
     <div
@@ -26,7 +27,7 @@ function ModalWithForm({
           src={close}
           alt="close-btn"
         />
-        <form className="modal__form" onSubmit={(e) => e.preventDefault()}>
+        <form className="modal__form" onSubmit={onSubmit}>
           {children}
           <button
             className={`modal__submit ${
@@ -34,6 +35,7 @@ function ModalWithForm({
             }`}
             id="submit-btn"
             disabled={isSubmitDisabled}
+            type="submit"
           >
             {buttonTextSubmit}
           </button>
