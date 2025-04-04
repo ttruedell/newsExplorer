@@ -4,6 +4,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const LoginModal = ({
   isOpen,
   handleCloseModal,
+  handleModalClick,
   onSwitchModal,
   validateEmail,
 }) => {
@@ -20,24 +21,11 @@ const LoginModal = ({
     setIsSubmitDisabled(!isValid);
   }, [email, password]);
 
-  //   useEffect(() => {
-  //     if (validateEmail(email) && password) {
-  //       setIsSubmitDisabled(false);
-  //       document
-  //         .getElementById("submit-btn")
-  //         .classList.remove("modal__submit_disabled");
-  //     } else {
-  //       setIsSubmitDisabled(true);
-  //       document
-  //         .getElementById("submit-btn")
-  //         .classList.add("modal__submit_disabled");
-  //     }
-  //   }, [email, password, validateEmail]);
-
   return (
     <ModalWithForm
       isOpen={isOpen}
       onClose={handleCloseModal}
+      handleModalClick={handleModalClick}
       name="SignInForm"
       title="Sign in"
       buttonTextSubmit="Sign in"

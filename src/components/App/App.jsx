@@ -35,14 +35,12 @@ function App() {
   const handleModalClose = (event) => {
     if (event.type === "keydown" && event.key === "Escape") {
       closeActiveModal();
-    } else if (event.type === "click") {
-      if (
-        (!event.target.closest(".modal__content") &&
-          event.target.closest("modal__switch-modal")) ||
-        event.target.closest(".modal__close-btn")
-      ) {
-        closeActiveModal();
-      }
+    }
+  };
+
+  const handleModalClick = (event) => {
+    if (event.target === event.currentTarget) {
+      closeActiveModal();
     }
   };
 
@@ -91,6 +89,7 @@ function App() {
       <LoginModal
         isOpen={activeModal === "login"}
         handleCloseModal={handleModalClose}
+        handleModalClick={handleModalClick}
         onSwitchModal={handleUserModal}
         validateEmail={validateEmail}
       />

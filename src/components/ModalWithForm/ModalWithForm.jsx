@@ -11,10 +11,12 @@ function ModalWithForm({
   buttonTextSwitch,
   onSwitchModal,
   isSubmitDisabled,
+  handleModalClick,
 }) {
   return (
     <div
       className={`modal modal__type_${name}  ${isOpen ? "modal_opened" : ""}`}
+      onClick={handleModalClick}
     >
       <div className="modal__content">
         <h2 className="modal__header">{title}</h2>
