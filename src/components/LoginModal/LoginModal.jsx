@@ -10,7 +10,6 @@ const LoginModal = ({
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -20,6 +19,13 @@ const LoginModal = ({
     const isValid = validateEmail(email) && password;
     setIsSubmitDisabled(!isValid);
   }, [email, password]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setEmail("");
+      setPassword("");
+    }
+  }, [isOpen]);
 
   return (
     <ModalWithForm
@@ -54,7 +60,7 @@ const LoginModal = ({
           placeholder="Enter password"
           value={password}
           onChange={handlePasswordChange}
-          minLength="1"
+          minLength="6"
           required
         />
       </label>

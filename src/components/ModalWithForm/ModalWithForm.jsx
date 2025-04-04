@@ -27,7 +27,7 @@ function ModalWithForm({
           src={close}
           alt="close-btn"
         />
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form className="modal__form" onSubmit={(e) => e.preventDefault()}>
           {children}
           <button
             className={`modal__submit ${

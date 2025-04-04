@@ -8,13 +8,14 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ArticleSection from "../ArticlesSection/ArticleSection";
 import LoginModal from "../LoginModal/LoginModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [activeModal, setActiveModal] = useState("login");
 
-  const handleSignUpClick = () => {
+  const handleRegisterClick = () => {
     setActiveModal("register");
   };
 
@@ -46,10 +47,15 @@ function App() {
 
   const handleUserModal = () => {
     if (activeModal === "register") {
+      // setPassword("");
+      // setEmail("");
+      // setUsername("");
       closeActiveModal();
       setActiveModal("login");
     }
     if (activeModal === "login") {
+      // setPassword("");
+      // setEmail("");
       closeActiveModal();
       setActiveModal("register");
     }
@@ -88,6 +94,13 @@ function App() {
       </div>
       <LoginModal
         isOpen={activeModal === "login"}
+        handleCloseModal={handleModalClose}
+        handleModalClick={handleModalClick}
+        onSwitchModal={handleUserModal}
+        validateEmail={validateEmail}
+      />
+      <RegisterModal
+        isOpen={activeModal === "register"}
         handleCloseModal={handleModalClose}
         handleModalClick={handleModalClick}
         onSwitchModal={handleUserModal}
