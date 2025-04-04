@@ -43,6 +43,12 @@
   opacity: 0.5;
 }
 
+.navigation__user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .navigation__home_signed-in {
   margin: 0 42px 0 0;
   height: 80px;
@@ -52,7 +58,7 @@
   background-color: transparent;
   border: none;
   border-bottom: 3px solid #fff;
-  color: #000;
+  color: #fff;
   cursor: pointer;
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
@@ -70,8 +76,8 @@
   font-weight: 500;
   background-color: transparent;
   border: none;
-  border-bottom: 3px solid #000;
-  color: #000;
+  border-bottom: 3px solid #fff;
+  color: #fff;
   cursor: pointer;
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
@@ -82,17 +88,20 @@
 }
 
 .navigation__sign-out {
+  display: flex;
   text-align: center;
   align-items: center;
+  justify-content: center;
   padding: 0 19px;
   font-weight: 500;
   max-width: 120px;
   height: 48px;
+
   border-radius: 100px;
   border-width: 1px;
-  border-color: #000;
+  border-color: #fff;
   background-color: transparent;
-  color: #000;
+  color: #fff;
   cursor: pointer;
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
@@ -105,4 +114,14 @@
 .navigation__sign-out-icon {
   margin: 0;
   padding: 0 0 0 15px;
+  height: 24px;
+  width: 24px;
+}
+.navigation__username {
+  margin: 0;
+}
+
+.navigation__active {
+  color: #000;
+  border-color: #000;
 }

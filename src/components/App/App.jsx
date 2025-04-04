@@ -12,7 +12,7 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [activeModal, setActiveModal] = useState("");
 
   const handleRegisterClick = () => {
