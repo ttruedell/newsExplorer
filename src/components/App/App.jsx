@@ -12,7 +12,7 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [activeModal, setActiveModal] = useState("");
 
   const handleRegisterClick = () => {
@@ -34,13 +34,10 @@ function App() {
   };
 
   const handleModalClose = (event) => {
-    if (event.type === "keydown" && event.key === "Escape") {
-      closeActiveModal();
-    }
-  };
-
-  const handleModalClick = (event) => {
-    if (event.target === event.currentTarget) {
+    if (
+      (event.type === "keydown" && event.key === "Escape") ||
+      event.target === event.currentTarget
+    ) {
       closeActiveModal();
     }
   };
@@ -90,14 +87,12 @@ function App() {
       <LoginModal
         isOpen={activeModal === "login"}
         handleCloseModal={handleModalClose}
-        handleModalClick={handleModalClick}
         onSwitchModal={handleUserModal}
         validateEmail={validateEmail}
       />
       <RegisterModal
         isOpen={activeModal === "register"}
         handleCloseModal={handleModalClose}
-        handleModalClick={handleModalClick}
         onSwitchModal={handleUserModal}
         validateEmail={validateEmail}
       />

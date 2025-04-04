@@ -4,7 +4,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const LoginModal = ({
   isOpen,
   handleCloseModal,
-  handleModalClick,
+  //   handleModalClick,
   onSwitchModal,
   validateEmail,
 }) => {
@@ -31,7 +31,6 @@ const LoginModal = ({
     <ModalWithForm
       isOpen={isOpen}
       onClose={handleCloseModal}
-      handleModalClick={handleModalClick}
       name="SignInForm"
       title="Sign in"
       buttonTextSubmit="Sign in"
