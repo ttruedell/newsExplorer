@@ -1,5 +1,6 @@
 import "./ArticleSection.css";
 import NewsCard from "../NewsCard/NewsCard";
+import { initialNewsCards } from "../../utils/constants";
 
 function ArticleSection() {
   return (
@@ -11,7 +12,11 @@ function ArticleSection() {
           By keywords: filler, filler, filler
         </p>
       </div>
-      <NewsCard />
+      <ul className="news-cards">
+        {initialNewsCards.map((card, index) => (
+          <NewsCard key={index} card={card} />
+        ))}
+      </ul>
     </main>
   );
 }
