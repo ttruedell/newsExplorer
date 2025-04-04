@@ -1,11 +1,9 @@
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import Navigation from "../Navigation/Navigation";
 
-import { useLocation } from "react-router-dom";
-
-function Header({ loginClick }) {
+function Header({ loginClick, loggedIn }) {
   const location = useLocation();
 
   const isHome = location.pathname === "/";
@@ -16,7 +14,7 @@ function Header({ loginClick }) {
         <Link to="/" className={isHome ? "header__logo" : "header-saved__logo"}>
           <p>NewsExplorer</p>
         </Link>
-        <Navigation loginClick={loginClick} />
+        <Navigation loginClick={loginClick} loggedIn={loggedIn} />
       </div>
     </header>
   );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-// import reactLogo from "../../assets/react.svg";
-// import viteLogo from "/vite.svg";
+import { Route, Routes } from "react-router-dom";
+
 import "./App.css";
 
 import Header from "../Header/Header";
@@ -9,11 +9,11 @@ import Footer from "../Footer/Footer";
 import ArticleSection from "../ArticlesSection/ArticleSection";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
-import { Route, Routes } from "react-router-dom";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [activeModal, setActiveModal] = useState("login");
+  const [activeModal, setActiveModal] = useState("");
 
   const handleRegisterClick = () => {
     setActiveModal("register");
@@ -47,15 +47,10 @@ function App() {
 
   const handleUserModal = () => {
     if (activeModal === "register") {
-      // setPassword("");
-      // setEmail("");
-      // setUsername("");
       closeActiveModal();
       setActiveModal("login");
     }
     if (activeModal === "login") {
-      // setPassword("");
-      // setEmail("");
       closeActiveModal();
       setActiveModal("register");
     }
@@ -85,7 +80,7 @@ function App() {
   return (
     <div className="page">
       <div className="page__content">
-        <Header loginClick={handleLoginClick} />
+        <Header loginClick={handleLoginClick} loggedIn={loggedIn} />
         <Routes>
           <Route path="/" element={<Main />}></Route>
           <Route path="/saved-news" element={<ArticleSection />}></Route>
