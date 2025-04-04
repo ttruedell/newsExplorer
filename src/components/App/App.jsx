@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 import "./App.css";
 
@@ -47,9 +47,12 @@ function App() {
     }, 500);
   };
 
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     setCurrentUser(null);
     setLoggedIn(false);
+    navigate("/");
   };
 
   const closeActiveModal = (event) => {
