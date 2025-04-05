@@ -125,3 +125,26 @@
   color: #000;
   border-color: #000;
 }
+
+@media screen and (max-width: 880px) {
+  .navigation {
+    right: 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    font-size: 16px;
+    right: 40px;
+  }
+
+  .navigation__sign-out {
+    max-width: 100px;
+    height: 40px;
+  }
+
+  .navigation__sign-in {
+    max-width: 152px;
+    height: 40px;
+  }
+}

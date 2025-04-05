@@ -3,20 +3,29 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
-  padding: 32px 104px;
+  width: 100%;
+
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 32px 104px 26px 104px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .footer__copyright {
   margin: 0;
+  margin-right: auto;
+  padding: 0;
   text-align: left;
+  line-height: 22px;
 }
 
 .footer__links {
-  list-style-type: none;
+  margin: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
+  list-style-type: none;
 }
 
 .footer__link {
@@ -27,4 +36,22 @@
 
 .footer__link:last-child {
   margin: 0 0 0 24px;
+}
+
+.footer__link_github,
+.footer__link_facebook {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 880px) {
+  .footer {
+    padding: 32px 60px 26px 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 24px 40px 18px 40px;
+  }
 }

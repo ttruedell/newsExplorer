@@ -1,13 +1,14 @@
 .news-cards {
   display: grid;
   gap: 16px 16px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 
   background-color: #f5f6f7;
-  /* background-color: #000; */
+  margin: 0;
   padding: 62px 104px;
   max-width: 1440px;
   justify-items: center;
+  box-sizing: border-box;
 }
 
 .news-card {
@@ -16,6 +17,7 @@
   position: relative;
   width: 400px;
   height: 576px;
+  box-sizing: border-box;
 }
 
 .news-card__header-container {
@@ -84,7 +86,6 @@
   padding: 17px 24px 0px 24px;
   font-family: "Roboto Slab";
   font-size: 26px;
-  /* font-weight: 400; */
   line-height: 30px;
   letter-spacing: 0;
 }
@@ -93,6 +94,7 @@
   margin: 0;
   font-family: "Source Sans Pro";
   font-size: 18px;
+  font-weight: 400;
   line-height: 24px;
   letter-spacing: 0;
   color: #bcbcbf;
@@ -141,9 +143,9 @@
   color: #bcbcbf;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .news-cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     column-gap: 16px;
   }
 }
@@ -152,5 +154,59 @@
   .news-cards {
     grid-template-columns: 1fr;
     column-gap: 16px;
+  }
+}
+
+@media screen and (max-width: 896px) {
+  .news-cards {
+    grid-template-columns: 1fr;
+    column-gap: 16px;
+  }
+}
+
+@media screen and (max-width: 895px) {
+  .news-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    padding: 32px 40px;
+  }
+
+  .news-card {
+    width: 224px;
+    height: 420px;
+  }
+  .news-card__image {
+    width: 224px;
+    height: 150px;
+  }
+
+  .news-card__header-container {
+    justify-content: space-between;
+    top: 8px;
+  }
+
+  .news-card__keyword {
+    padding: 8px 20px;
+    margin-left: 8px;
+  }
+
+  .news-card__remove-btn {
+    margin: 0 8px 0 0;
+  }
+
+  .news-card__confirm-remove {
+    display: none;
+  }
+
+  .news-card__article {
+    padding: 20px 15px 12px 15px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .news-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 32px 40px;
   }
 }

@@ -3,13 +3,13 @@
   flex-wrap: row;
   align-items: center;
   margin: 0;
-  padding: 80px 104px
-  
+  height: 100%;
+  padding: 80px 104px;
 }
 
 .about__image {
-  height: 264px;
-  width: 264px;
+  height: 464px;
+  width: 464px;
   border-radius: 50%;
 }
 
@@ -18,4 +18,38 @@
   text-align: left;
 }
 
-/*the author_image needs to be 464px * 464px; change later
+.about__header {
+  margin: 0 0 24px 0;
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  font-weight: 40px;
+  line-height: 46px;
+  letter-spacing: 0;
+}
+
+.about__descritption {
+  margin: 0;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+@media screen and (max-width: 980px) {
+  .about__image {
+    height: 300px;
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about {
+    padding: 40px 40px 60px 40px;
+  }
+
+  .about__image {
+    height: 232px;
+    width: 232px;
+  }
+}
