@@ -17,6 +17,11 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(true);
   const [activeModal, setActiveModal] = useState("");
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+
   const handleRegisterClick = () => {
     setActiveModal("register");
   };
@@ -127,6 +132,12 @@ function App() {
         onSwitchModal={handleUserModal}
         validateEmail={validateEmail}
         handleLogin={handleLogin}
+        email={email}
+        setEmail={setEmail}
+        password={password}
+        setPassword={setPassword}
+        isSubmitDisabled={isSubmitDisabled}
+        setIsSubmitDisabled={setIsSubmitDisabled}
       />
       <RegisterModal
         isOpen={activeModal === "register"}
@@ -134,6 +145,14 @@ function App() {
         onSwitchModal={handleUserModal}
         validateEmail={validateEmail}
         handleRegister={handleRegister}
+        email={email}
+        setEmail={setEmail}
+        password={password}
+        setPassword={setPassword}
+        username={username}
+        setUsername={setUsername}
+        isSubmitDisabled={isSubmitDisabled}
+        setIsSubmitDisabled={setIsSubmitDisabled}
       />
     </div>
   );

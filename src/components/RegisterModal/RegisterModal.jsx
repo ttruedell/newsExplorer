@@ -7,15 +7,23 @@ const RegisterModal = ({
   onSwitchModal,
   validateEmail,
   handleRegister,
+  email,
+  setEmail,
+  password,
+  setPassword,
+  username,
+  setUsername,
+  isSubmitDisabled,
+  setIsSubmitDisabled,
 }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [username, setUsername] = useState("");
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleUsernameChange = (e) => setUsername(e.target.value);
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+  // const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   useEffect(() => {
     const isValid = validateEmail(email) && password && username;
