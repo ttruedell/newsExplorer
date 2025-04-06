@@ -20,9 +20,17 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
-  const [errors, setErrors] = useState({
+  const [isLoginSubmitDisabled, setIsLoginSubmitDisabled] = useState(true);
+  const [isRegisterSubmitDisabled, setIsRegisterSubmitDisabled] =
+    useState(true);
+
+  const [loginErrors, setLoginErrors] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [registerErrors, setRegisterErrors] = useState({
     email: "",
     password: "",
     username: "",
@@ -142,10 +150,10 @@ function App() {
         setEmail={setEmail}
         password={password}
         setPassword={setPassword}
-        isSubmitDisabled={isSubmitDisabled}
-        setIsSubmitDisabled={setIsSubmitDisabled}
-        errors={errors}
-        setErrors={setErrors}
+        isSubmitDisabled={isLoginSubmitDisabled}
+        setIsSubmitDisabled={setIsLoginSubmitDisabled}
+        errors={loginErrors}
+        setErrors={setLoginErrors}
       />
       <RegisterModal
         isOpen={activeModal === "register"}
@@ -159,10 +167,10 @@ function App() {
         setPassword={setPassword}
         username={username}
         setUsername={setUsername}
-        isSubmitDisabled={isSubmitDisabled}
-        setIsSubmitDisabled={setIsSubmitDisabled}
-        errors={errors}
-        setErrors={setErrors}
+        isSubmitDisabled={isRegisterSubmitDisabled}
+        setIsSubmitDisabled={setIsRegisterSubmitDisabled}
+        errors={registerErrors}
+        setErrors={setRegisterErrors}
       />
     </div>
   );

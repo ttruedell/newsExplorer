@@ -51,16 +51,22 @@ const RegisterModal = ({
   // const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   useEffect(() => {
-    const isValid = validateEmail(email) && password && username;
+    const isValid =
+      validateEmail(email) &&
+      password.length >= 6 &&
+      username.length >= 6 &&
+      !errors.email &&
+      !errors.password &&
+      !errors.username;
     setIsSubmitDisabled(!isValid);
-  }, [email, password, username]);
+  }, [email, password, username, errors]);
 
   useEffect(() => {
     if (!isOpen) {
       setEmail("");
       setPassword("");
       setUsername("");
-      setErrors("");
+      setErrors({ email: "", password: "", username: "" });
     }
   }, [isOpen]);
 
