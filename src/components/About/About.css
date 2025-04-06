@@ -22,7 +22,7 @@
   margin: 0 0 24px 0;
   font-family: "Roboto Slab";
   font-weight: 400;
-  font-weight: 40px;
+  font-size: 40px;
   line-height: 46px;
   letter-spacing: 0;
 }
@@ -51,5 +51,33 @@
   .about__image {
     height: 232px;
     width: 232px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .about {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
+    padding: 32px 24px;
+  }
+
+  .about__image {
+    height: 272px;
+    width: 272px;
+  }
+
+  .about__content {
+    margin: 0;
+    text-align: left;
+  }
+
+  .about__header {
+    margin: 24px 0 16px 0;
+    font-size: 30px;
+    line-height: 40px;
   }
 }
