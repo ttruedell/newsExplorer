@@ -13,12 +13,29 @@ const LoginModal = ({
   setPassword,
   isSubmitDisabled,
   setIsSubmitDisabled,
+  errors,
+  setErrors,
 }) => {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
 
-  const handleEmailChange = (e) => setEmail(e.target.value);
-  const handlePasswordChange = (e) => setPassword(e.target.value);
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    setErrors((prev) => ({
+      ...prev,
+      email: validateEmail(value) ? "" : "Invalid email address",
+    }));
+  };
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+    setErrors((prev) => ({
+      ...prev,
+      password:
+        value.length >= 6 ? "" : "Password must be at least 6 characters long",
+    }));
+  };
   // const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   useEffect(() => {
@@ -30,6 +47,7 @@ const LoginModal = ({
     if (!isOpen) {
       setEmail("");
       setPassword("");
+      setErrors("");
     }
   }, [isOpen]);
 
@@ -59,6 +77,7 @@ const LoginModal = ({
           onChange={handleEmailChange}
           required
         />
+        {errors.email && <p className="modal__input-error">{errors.email}</p>}
       </label>
       <label className="modal__label">
         <p className="modal__input-header">Password</p>
@@ -72,6 +91,9 @@ const LoginModal = ({
           minLength="6"
           required
         />
+        {errors.password && (
+          <p className="modal__input-error">{errors.password}</p>
+        )}
       </label>
     </ModalWithForm>
   );

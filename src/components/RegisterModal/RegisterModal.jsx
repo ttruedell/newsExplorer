@@ -15,14 +15,39 @@ const RegisterModal = ({
   setUsername,
   isSubmitDisabled,
   setIsSubmitDisabled,
+  errors,
+  setErrors,
 }) => {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
   // const [username, setUsername] = useState("");
 
-  const handleEmailChange = (e) => setEmail(e.target.value);
-  const handlePasswordChange = (e) => setPassword(e.target.value);
-  const handleUsernameChange = (e) => setUsername(e.target.value);
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    setErrors((prev) => ({
+      ...prev,
+      email: validateEmail(value) ? "" : "Invalid email address",
+    }));
+  };
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+    setErrors((prev) => ({
+      ...prev,
+      password:
+        value.length >= 6 ? "" : "Password must be at least 6 characters long",
+    }));
+  };
+  const handleUsernameChange = (e) => {
+    const value = e.target.value;
+    setUsername(value);
+    setErrors((prev) => ({
+      ...prev,
+      username:
+        value.length >= 6 ? "" : "Username must be at least 6 characters long",
+    }));
+  };
   // const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   useEffect(() => {
@@ -35,6 +60,7 @@ const RegisterModal = ({
       setEmail("");
       setPassword("");
       setUsername("");
+      setErrors("");
     }
   }, [isOpen]);
 
@@ -64,6 +90,7 @@ const RegisterModal = ({
           onChange={handleEmailChange}
           required
         />
+        {errors.email && <p className="modal__input-error">{errors.email}</p>}
       </label>
       <label className="modal__label">
         <p className="modal__input-header">Password</p>
@@ -77,6 +104,9 @@ const RegisterModal = ({
           minLength="6"
           required
         />
+        {errors.password && (
+          <p className="modal__input-error">{errors.password}</p>
+        )}
       </label>
       <label className="modal__label">
         <p className="modal__input-header">Username</p>
@@ -90,6 +120,9 @@ const RegisterModal = ({
           minLength="6"
           required
         />
+        {errors.username && (
+          <p className="modal__input-error">{errors.username}</p>
+        )}
       </label>
     </ModalWithForm>
   );

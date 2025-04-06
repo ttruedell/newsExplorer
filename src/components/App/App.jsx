@@ -22,6 +22,12 @@ function App() {
   const [username, setUsername] = useState("");
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    username: "",
+  });
+
   const handleRegisterClick = () => {
     setActiveModal("register");
   };
@@ -138,6 +144,8 @@ function App() {
         setPassword={setPassword}
         isSubmitDisabled={isSubmitDisabled}
         setIsSubmitDisabled={setIsSubmitDisabled}
+        errors={errors}
+        setErrors={setErrors}
       />
       <RegisterModal
         isOpen={activeModal === "register"}
@@ -153,6 +161,8 @@ function App() {
         setUsername={setUsername}
         isSubmitDisabled={isSubmitDisabled}
         setIsSubmitDisabled={setIsSubmitDisabled}
+        errors={errors}
+        setErrors={setErrors}
       />
     </div>
   );
