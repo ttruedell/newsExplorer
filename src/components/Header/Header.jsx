@@ -11,8 +11,10 @@ function Header({ loginClick, loggedIn, handleLogout, currentUser }) {
   return (
     <header className={isHome ? "header" : "header-saved"}>
       <div className={isHome ? "header__content" : "header-saved__content"}>
-        <Link to="/" className={isHome ? "header__logo" : "header-saved__logo"}>
-          <p>NewsExplorer</p>
+        <Link to="/">
+          <p className={isHome ? "header__logo" : "header-saved__logo"}>
+            NewsExplorer
+          </p>
         </Link>
         <Navigation
           loginClick={loginClick}
