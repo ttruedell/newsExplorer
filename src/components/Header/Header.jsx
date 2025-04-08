@@ -9,6 +9,8 @@ function Header({
   handleLogout,
   currentUser,
   isModalOpen,
+  menuOpen,
+  setMenuOpen,
 }) {
   const location = useLocation();
 
@@ -18,7 +20,15 @@ function Header({
     <header className={isHome ? "header" : "header-saved"}>
       <div className={isHome ? "header__content" : "header-saved__content"}>
         <Link to="/">
-          <p className={isHome ? "header__logo" : "header-saved__logo"}>
+          <p
+            className={`${
+              isHome
+                ? "header__logo"
+                : menuOpen
+                ? "header__logo"
+                : "header-saved__logo"
+            }`}
+          >
             NewsExplorer
           </p>
         </Link>
@@ -28,6 +38,8 @@ function Header({
           handleLogout={handleLogout}
           currentUser={currentUser}
           isModalOpen={isModalOpen}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
         />
       </div>
     </header>

@@ -17,6 +17,8 @@ function Navigation({
   handleLogout,
   currentUser,
   isModalOpen,
+  menuOpen,
+  setMenuOpen,
 }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
@@ -24,7 +26,7 @@ function Navigation({
   const username = currentUser?.username || "User";
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 700);
-  const [menuOpen, setMenuOpen] = useState(false);
+  // const [menuOpen, setMenuOpen] = useState(false);
 
   let menuIcon;
 
@@ -55,6 +57,12 @@ function Navigation({
   const handleLoginClick = () => {
     loginClick();
     setMenuOpen(false);
+  };
+
+  const handleMenuClick = (e) => {
+    if (!e.target.closest(".navigation__dropdown-content")) {
+      setMenuOpen(false);
+    }
   };
 
   return (
@@ -134,6 +142,7 @@ function Navigation({
           {
             <div
               className={`navigation__dropdown ${menuOpen ? "active" : ""} `}
+              onClick={handleMenuClick}
             >
               <div
                 className={`navigation__dropdown-content ${

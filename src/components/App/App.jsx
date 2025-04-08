@@ -20,6 +20,7 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const [isLoginSubmitDisabled, setIsLoginSubmitDisabled] = useState(true);
   const [isRegisterSubmitDisabled, setIsRegisterSubmitDisabled] =
@@ -134,6 +135,8 @@ function App() {
           handleLogout={handleLogout}
           currentUser={currentUser}
           isModalOpen={activeModal === "login" || activeModal === "register"}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
         />
         <Routes>
           <Route path="/" element={<Main />}></Route>

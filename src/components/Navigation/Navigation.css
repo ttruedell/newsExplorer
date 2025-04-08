@@ -36,11 +36,11 @@
 }
 
 .navigation__link_home {
-  padding: 29px 9px 28px 9px;
+  padding: 30px 9px 27px 9px;
 }
 
 .navigation__link_news {
-  padding: 29px 32px 28px 32px;
+  padding: 30x 32px 27px 32px;
   border-color: transparent;
 }
 
@@ -83,14 +83,19 @@
 
 .navigation__btn_user {
   width: auto;
-  padding: 12px 10px 12px 23px;
+  padding: 12px 10px 12px 20px;
 }
 
 .navigation__username {
+  margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100px;
+}
+
+.navigation__sign-out-icon {
+  padding-left: 14px;
 }
 
 .navigation__menu-toggle {
@@ -198,6 +203,10 @@
     font-size: 16px;
   }
 
+  .navigation__btn_user {
+    padding: 8px 13px 8px 15px;
+  }
+
   .navigation__list {
     height: 100%;
   }
@@ -218,5 +227,3 @@
     padding: 8px 13px 8px 15px;
   }
 }
-
-
