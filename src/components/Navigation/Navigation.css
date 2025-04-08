@@ -93,6 +93,16 @@
   max-width: 100px;
 }
 
+.navigation__menu-toggle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: transparent;
+  border: 0;
+}
+
+/*************************/
+/*************************/
 /*************************/
 
 .navigation__home_signed-out {
