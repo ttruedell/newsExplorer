@@ -53,52 +53,6 @@ function Navigation({ loginClick, loggedIn, handleLogout, currentUser }) {
 
   return (
     <nav className="navigation">
-      {/* {loggedIn ? (
-        <div className="navigation__user">
-          <Link to="/">
-            <button
-              className={`navigation__home_signed-in ${
-                areSavedArticles ? "navigation__active" : ""
-              }`}
-            >
-              Home
-            </button>
-          </Link>
-          <Link to="/saved-news">
-            <button
-              className={`navigation__saved-news ${
-                areSavedArticles ? "navigation__active" : ""
-              }`}
-            >
-              Saved Articles
-            </button>
-          </Link>
-          <button
-            className={`navigation__sign-out ${
-              areSavedArticles ? "navigation__active" : ""
-            }`}
-            onClick={handleLogout}
-          >
-            {username}
-            <img
-              className={`navigation__sign-out-icon ${
-                areSavedArticles ? "navigation__active" : ""
-              }`}
-              src={isHome ? logout_home : logout}
-              alt="sign-out"
-            />
-          </button>
-        </div>
-      ) : (
-        <div className="navigation__non-user">
-          <Link to="/">
-            <button className="navigation__home_signed-out">Home</button>
-          </Link>
-          <button onClick={loginClick} className="navigation__sign-in">
-            Sign In
-          </button>
-        </div>
-      )} */}
       {!isMobile ? (
         <ul className="navigation__list">
           <li>
