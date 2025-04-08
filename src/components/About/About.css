@@ -5,6 +5,7 @@
   margin: 0;
   height: 100%;
   padding: 80px 104px;
+  flex: 1;
 }
 
 .about__image {

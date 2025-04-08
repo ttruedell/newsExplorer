@@ -138,8 +138,8 @@ function Navigation({ loginClick, loggedIn, handleLogout, currentUser }) {
                     isSavedNews ? "navigation__active" : ""
                   }`}
                 >
-                  {" "}
-                  {currentUser?.username || "User"}
+                  {/* {currentUser?.username || "User"} */}
+                  {username}
                 </p>
                 <img
                   className={`navigation__sign-out-icon ${
@@ -159,48 +159,56 @@ function Navigation({ loginClick, loggedIn, handleLogout, currentUser }) {
       ) : (
         <>
           <button
-            className="navigation__menu-toggle"
+            className="navigation__menu-toggle "
             onClick={handleToggleMenu}
             aria-label="Toggle Menu"
           >
-            <img src={menuIcon} alt="menu" />
+            <img className="navigation__menu-icon" src={menuIcon} alt="menu" />
           </button>
 
-          {menuOpen && (
-            <div className="navigation__dropdown">
-              <Link
-                to="/"
-                className="navigation__dropdown-link"
-                onClick={() => setMenuOpen(false)}
+          {
+            /*menuOpen &&*/ <div
+              className={`navigation__dropdown ${menuOpen ? "active" : ""}`}
+            >
+              <div
+                className={`navigation__dropdown-content ${
+                  menuOpen ? "active" : ""
+                }`}
               >
-                Home
-              </Link>
-              {loggedIn && (
                 <Link
-                  to="/saved-news"
-                  className="navigation__dropdown-link"
+                  to="/"
+                  // className="navigation__dropdown-link"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Saved Articles
+                  <p className="navigation__dropdown-link">Home</p>
                 </Link>
-              )}
-              {loggedIn ? (
-                <button
-                  className="navigation__dropdown-btn"
-                  onClick={handleSignOut}
-                >
-                  {currentUser?.username || "Sign Out"}
-                </button>
-              ) : (
-                <button
-                  className="navigation__dropdown-btn"
-                  onClick={handleLoginClick}
-                >
-                  Sign In
-                </button>
-              )}
+                {loggedIn && (
+                  <Link
+                    to="/saved-news"
+                    // className="navigation__dropdown-link"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <p className="navigation__dropdown-link">Saved Articles</p>
+                  </Link>
+                )}
+                {loggedIn ? (
+                  <button
+                    className="navigation__dropdown-btn"
+                    onClick={handleSignOut}
+                  >
+                    {currentUser?.username || "Sign Out"}
+                  </button>
+                ) : (
+                  <button
+                    className="navigation__dropdown-btn"
+                    onClick={handleLoginClick}
+                  >
+                    Sign In
+                  </button>
+                )}
+              </div>
             </div>
-          )}
+          }
         </>
       )}
     </nav>
