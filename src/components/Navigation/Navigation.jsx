@@ -20,6 +20,14 @@ function Navigation({ loginClick, loggedIn, handleLogout, currentUser }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 700);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  let menuIcon;
+
+  if (menuOpen) {
+    menuIcon = close;
+  } else {
+    menuIcon = isHome ? menuWhite : menuBlack;
+  }
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 700);
@@ -44,8 +52,8 @@ function Navigation({ loginClick, loggedIn, handleLogout, currentUser }) {
   };
 
   return (
-    <div className="navigation">
-      {loggedIn ? (
+    <nav className="navigation">
+      {/* {loggedIn ? (
         <div className="navigation__user">
           <Link to="/">
             <button
@@ -90,8 +98,97 @@ function Navigation({ loginClick, loggedIn, handleLogout, currentUser }) {
             Sign In
           </button>
         </div>
+      )} */}
+      {!isMobile ? (
+        <ul className="navigation__list">
+          <li>
+            <Link
+              to="/"
+              className={`navigation__link ${isHome ? "active" : ""}`}
+            >
+              Home
+            </Link>
+          </li>
+          {loggedIn && (
+            <li>
+              <Link
+                to="/saved-news"
+                className={`navigation__link ${!isHome ? "active" : ""}`}
+              >
+                Saved Articles
+              </Link>
+            </li>
+          )}
+          <li>
+            {loggedIn ? (
+              <button
+                className="navigation__btn navigation__btn_user"
+                onClick={handleSignOut}
+              >
+                {currentUser?.username || "User"}
+                <img
+                  className={`navigation__sign-out-icon ${
+                    areSavedArticles ? "navigation__active" : ""
+                  }`}
+                  src={isHome ? logout_home : logout}
+                  alt="sign-out"
+                />
+              </button>
+            ) : (
+              <button className="navigation__btn" onClick={handleLoginClick}>
+                Sign In
+              </button>
+            )}
+          </li>
+        </ul>
+      ) : (
+        <>
+          <button
+            className="navigation__menu-toggle"
+            onClick={handleToggleMenu}
+            aria-label="Toggle Menu"
+          >
+            <img src={menuIcon} alt="menu" />
+          </button>
+
+          {menuOpen && (
+            <div className="navigation__dropdown">
+              <Link
+                to="/"
+                className="navigation__dropdown-link"
+                onClick={() => setMenuOpen(false)}
+              >
+                Home
+              </Link>
+              {loggedIn && (
+                <Link
+                  to="/saved-news"
+                  className="navigation__dropdown-link"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Saved Articles
+                </Link>
+              )}
+              {loggedIn ? (
+                <button
+                  className="navigation__dropdown-btn"
+                  onClick={handleSignOut}
+                >
+                  {currentUser?.username || "Sign Out"}
+                </button>
+              ) : (
+                <button
+                  className="navigation__dropdown-btn"
+                  onClick={handleLoginClick}
+                >
+                  Sign In
+                </button>
+              )}
+            </div>
+          )}
+        </>
       )}
-    </div>
+    </nav>
   );
 }
 
