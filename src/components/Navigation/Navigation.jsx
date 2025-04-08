@@ -14,7 +14,7 @@ import menuWhite from "../../assets/menu2.png";
 function Navigation({ loginClick, loggedIn, handleLogout, currentUser }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
-  const areSavedArticles = location.pathname === "/saved-news";
+  const isSavedNews = location.pathname === "/saved-news";
   const username = currentUser?.username || "User";
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 700);
@@ -128,13 +128,22 @@ function Navigation({ loginClick, loggedIn, handleLogout, currentUser }) {
           <li>
             {loggedIn ? (
               <button
-                className="navigation__btn navigation__btn_user"
+                className={`navigation__btn navigation__btn_user ${
+                  isSavedNews ? "active" : ""
+                }`}
                 onClick={handleSignOut}
               >
-                {currentUser?.username || "User"}
+                <p
+                  className={`navigation__username ${
+                    isSavedNews ? "navigation__active" : ""
+                  }`}
+                >
+                  {" "}
+                  {currentUser?.username || "User"}
+                </p>
                 <img
                   className={`navigation__sign-out-icon ${
-                    areSavedArticles ? "navigation__active" : ""
+                    isSavedNews ? "navigation__active" : ""
                   }`}
                   src={isHome ? logout_home : logout}
                   alt="sign-out"
