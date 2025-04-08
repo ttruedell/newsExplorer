@@ -149,14 +149,19 @@ function Navigation({
                   menuOpen ? "active" : ""
                 }`}
               >
-                <Link to="/" onClick={() => setMenuOpen(false)}>
-                  <p className="navigation__dropdown-link">Home</p>
-                </Link>
-                {loggedIn && (
-                  <Link to="/saved-news" onClick={() => setMenuOpen(false)}>
-                    <p className="navigation__dropdown-link">Saved Articles</p>
+                <div className="navigation__dropdown-inner">
+                  <Link to="/" onClick={() => setMenuOpen(false)}>
+                    <p className="navigation__dropdown-link">Home</p>
                   </Link>
-                )}
+                  {loggedIn && (
+                    <Link to="/saved-news" onClick={() => setMenuOpen(false)}>
+                      <p className="navigation__dropdown-link">
+                        Saved Articles
+                      </p>
+                    </Link>
+                  )}
+                </div>
+
                 {loggedIn ? (
                   <button
                     className="navigation__dropdown-btn"

@@ -151,6 +151,7 @@
 .navigation__dropdown-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -171,6 +172,14 @@
 .navigation__dropdown-content.active {
   transform: scaleY(1);
   opacity: 1;
+}
+
+.navigation__dropdown-inner {
+  padding: 0 168px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 288px;
 }
 
 .navigation__dropdown-link {
@@ -226,4 +235,10 @@
   .navigation__btn_user {
     padding: 8px 13px 8px 15px;
   }
+}
+
+@media screen and (max-width: 700px) {
+  /* .navigation__dropdown-content {
+    padding: 82px 100px 0px 100px;
+  } */
 }
