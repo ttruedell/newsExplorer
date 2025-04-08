@@ -11,7 +11,13 @@ import close from "../../assets/close.png";
 import menuBlack from "../../assets/menu.png";
 import menuWhite from "../../assets/menu2.png";
 
-function Navigation({ loginClick, loggedIn, handleLogout, currentUser }) {
+function Navigation({
+  loginClick,
+  loggedIn,
+  handleLogout,
+  currentUser,
+  isModalOpen,
+}) {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const isSavedNews = location.pathname === "/saved-news";
@@ -113,16 +119,22 @@ function Navigation({ loginClick, loggedIn, handleLogout, currentUser }) {
       ) : (
         <>
           <button
-            className="navigation__menu-toggle "
+            className={`navigation__menu-toggle ${
+              isModalOpen ? "navigation__menu-toggle_hidden" : ""
+            }`}
             onClick={handleToggleMenu}
             aria-label="Toggle Menu"
           >
-            <img className="navigation__menu-icon" src={menuIcon} alt="menu" />
+            <img
+              className={`navigation__menu-icon ${isModalOpen ? "hidden" : ""}`}
+              src={menuIcon}
+              alt="menu"
+            />
           </button>
 
           {
             /*menuOpen &&*/ <div
-              className={`navigation__dropdown ${menuOpen ? "active" : ""}`}
+              className={`navigation__dropdown ${menuOpen ? "active" : ""} `}
             >
               <div
                 className={`navigation__dropdown-content ${

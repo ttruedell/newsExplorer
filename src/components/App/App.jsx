@@ -133,6 +133,7 @@ function App() {
           loggedIn={loggedIn}
           handleLogout={handleLogout}
           currentUser={currentUser}
+          isModalOpen={activeModal === "login" || activeModal === "register"}
         />
         <Routes>
           <Route path="/" element={<Main />}></Route>

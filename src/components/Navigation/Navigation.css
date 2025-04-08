@@ -6,6 +6,10 @@
   font-weight: 500;
 }
 
+/* .navigation.inactive {
+  display: none;
+} */
+
 .navigation__active {
   color: #000;
   border-color: #000;
@@ -94,6 +98,7 @@
 }
 
 .navigation__menu-toggle {
+  display: block;
   position: absolute;
   top: 16px;
   padding: 0;
@@ -102,11 +107,26 @@
   background-color: transparent;
   border: 0;
   z-index: 9999;
+  /* transition: display 0.6s ease-in-out; */
+}
+
+.navigation__menu-toggle_hidden {
+  display: none;
 }
 
 .navigation__menu-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 24px;
   width: 24px;
+  transition: opacity 0.1s ease-in;
+}
+
+.navigation__menu-icon.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .navigation__dropdown {

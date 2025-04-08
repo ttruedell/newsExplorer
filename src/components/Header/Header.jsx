@@ -3,7 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 
 import Navigation from "../Navigation/Navigation";
 
-function Header({ loginClick, loggedIn, handleLogout, currentUser }) {
+function Header({
+  loginClick,
+  loggedIn,
+  handleLogout,
+  currentUser,
+  isModalOpen,
+}) {
   const location = useLocation();
 
   const isHome = location.pathname === "/";
@@ -21,6 +27,7 @@ function Header({ loginClick, loggedIn, handleLogout, currentUser }) {
           loggedIn={loggedIn}
           handleLogout={handleLogout}
           currentUser={currentUser}
+          isModalOpen={isModalOpen}
         />
       </div>
     </header>
