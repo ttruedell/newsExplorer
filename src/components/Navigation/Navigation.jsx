@@ -98,7 +98,6 @@ function Navigation({
                     isSavedNews ? "navigation__active" : ""
                   }`}
                 >
-                  {/* {currentUser?.username || "User"} */}
                   {username}
                 </p>
                 <img
@@ -133,7 +132,7 @@ function Navigation({
           </button>
 
           {
-            /*menuOpen &&*/ <div
+            <div
               className={`navigation__dropdown ${menuOpen ? "active" : ""} `}
             >
               <div
@@ -141,19 +140,11 @@ function Navigation({
                   menuOpen ? "active" : ""
                 }`}
               >
-                <Link
-                  to="/"
-                  // className="navigation__dropdown-link"
-                  onClick={() => setMenuOpen(false)}
-                >
+                <Link to="/" onClick={() => setMenuOpen(false)}>
                   <p className="navigation__dropdown-link">Home</p>
                 </Link>
                 {loggedIn && (
-                  <Link
-                    to="/saved-news"
-                    // className="navigation__dropdown-link"
-                    onClick={() => setMenuOpen(false)}
-                  >
+                  <Link to="/saved-news" onClick={() => setMenuOpen(false)}>
                     <p className="navigation__dropdown-link">Saved Articles</p>
                   </Link>
                 )}
