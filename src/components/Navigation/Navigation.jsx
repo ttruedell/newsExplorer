@@ -102,20 +102,26 @@ function Navigation({ loginClick, loggedIn, handleLogout, currentUser }) {
       {!isMobile ? (
         <ul className="navigation__list">
           <li>
-            <Link
-              to="/"
-              className={`navigation__link ${isHome ? "active" : ""}`}
-            >
-              Home
+            <Link to="/">
+              <p
+                className={`navigation__link navigation__link_home ${
+                  !isHome ? "active" : ""
+                }`}
+              >
+                Home
+              </p>
             </Link>
           </li>
           {loggedIn && (
             <li>
-              <Link
-                to="/saved-news"
-                className={`navigation__link ${!isHome ? "active" : ""}`}
-              >
-                Saved Articles
+              <Link to="/saved-news">
+                <p
+                  className={`navigation__link navigation__link_news ${
+                    !isHome ? "active" : ""
+                  }`}
+                >
+                  Saved Articles
+                </p>
               </Link>
             </li>
           )}
