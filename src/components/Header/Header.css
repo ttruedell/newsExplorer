@@ -52,13 +52,10 @@
 }
 
 @media screen and (max-width: 880px) {
-  .header__logo,
-  .header-saved__logo {
-    padding-left: 60px;
+  .header,
+  .header-saved {
+    height: 66px;
   }
-}
-
-@media screen and (max-width: 700px) {
   .header__logo,
   .header-saved__logo {
     padding-left: 40px;
