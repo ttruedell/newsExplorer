@@ -20,7 +20,7 @@ function NewsCard({ card, loggedIn }) {
           className="news-card__header-container 
         news-card__header-container_save"
         >
-          {loggedIn && (
+          {!loggedIn && (
             <h2
               className="news-card__confirm-bookmark"
               style={{

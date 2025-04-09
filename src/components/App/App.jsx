@@ -14,7 +14,7 @@ import { signUp, signIn } from "../../utils/auth";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [activeModal, setActiveModal] = useState("");
 
   const [email, setEmail] = useState("");
