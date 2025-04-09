@@ -11,6 +11,8 @@ import ArticleSection from "../ArticlesSection/ArticleSection";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 
+import { initialNewsCards } from "../../utils/constants";
+
 import { signUp, signIn } from "../../utils/auth";
 
 function App() {
@@ -22,6 +24,9 @@ function App() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
 
   const [isLoginSubmitDisabled, setIsLoginSubmitDisabled] = useState(true);
   const [isRegisterSubmitDisabled, setIsRegisterSubmitDisabled] =
@@ -57,7 +62,7 @@ function App() {
     const userData = { username: "Elise", email }; // Simulated user
     if (email && password) {
       setLoggedIn(true);
-      console.log(loggedIn);
+      console.log("You are logged in:", !loggedIn);
       setCurrentUser(userData);
       localStorage.setItem("user", JSON.stringify(userData));
       closeActiveModal();
@@ -78,7 +83,7 @@ function App() {
   const handleLogout = () => {
     setCurrentUser(null);
     setLoggedIn(false);
-    console.log(loggedIn);
+    console.log("You are logged in:", !loggedIn);
     localStorage.removeItem("user");
     navigate("/");
   };
@@ -111,6 +116,27 @@ function App() {
       closeActiveModal();
       setActiveModal("register");
     }
+  };
+
+  const handleSearch = (query) => {
+    if (!query.trim()) return;
+
+    setIsSearching(true);
+
+    // Simulate API with setTimeout
+    setTimeout(() => {
+      const q = query.toLowerCase();
+      const results = initialNewsCards.filter(({ title, text, author }) => {
+        return (
+          title.toLowerCase().includes(q) ||
+          text.toLowerCase().includes(q) ||
+          author.toLowerCase().includes(q)
+        );
+      });
+
+      setSearchResults(results);
+      setIsSearching(false);
+    }, 1500);
   };
 
   useEffect(() => {
@@ -155,7 +181,17 @@ function App() {
             setMenuOpen={setMenuOpen}
           />
           <Routes>
-            <Route path="/" element={<Main loggedIn={loggedIn} />}></Route>
+            <Route
+              path="/"
+              element={
+                <Main
+                  loggedIn={loggedIn}
+                  onSearch={handleSearch}
+                  isSearching={isSearching}
+                  searchResults={searchResults}
+                />
+              }
+            ></Route>
             <Route
               path="/saved-news"
               element={

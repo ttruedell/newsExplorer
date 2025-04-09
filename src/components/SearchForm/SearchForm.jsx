@@ -1,10 +1,21 @@
+import { useState } from "react";
+
 import "./SearchForm.css";
 import background from "../../assets/search-form-background.svg";
 
-function SearchForm() {
+function SearchForm({ onSearch }) {
+  const [query, setQuery] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (query.trim().length >= 1) {
+      onSearch(query);
+    }
+  };
+
   return (
     // <section>
-    <form action="" className="search-form">
+    <form onSubmit={handleSubmit} className="search-form">
       <img
         src={background}
         alt="search-form-background"
@@ -21,6 +32,7 @@ function SearchForm() {
             type="text"
             placeholder="Enter topic"
             className="search-form__input"
+            onChange={(e) => setQuery(e.target.value)}
           />
           <button className="search-form__button">Search</button>
         </div>

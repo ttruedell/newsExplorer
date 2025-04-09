@@ -3,11 +3,15 @@ import SearchForm from "../SearchForm/SearchForm";
 import About from "../About/About";
 import Preloader from "../Preloader/Preloader";
 
-function Main(loggedIn, setLoggedIn) {
+function Main({ loggedIn, onSearch, isSearching, searchResults }) {
   return (
     <main className="main">
-      <SearchForm />
-      <Preloader loggedIn={loggedIn} />
+      <SearchForm onSearch={onSearch} />
+      <Preloader
+        loggedIn={loggedIn}
+        isSearching={isSearching}
+        searchResults={searchResults}
+      />
       <About />
     </main>
   );
