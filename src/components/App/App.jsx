@@ -1,5 +1,11 @@
 import { useEffect, useState, useContext } from "react";
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  Navigate,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 import "./App.css";
@@ -16,6 +22,8 @@ import { initialNewsCards } from "../../utils/constants";
 import { signUp, signIn } from "../../utils/auth";
 
 function App() {
+  const location = useLocation();
+
   const [currentUser, setCurrentUser] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [activeModal, setActiveModal] = useState("");
@@ -27,6 +35,7 @@ function App() {
 
   const [isSearching, setIsSearching] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const [isLoginSubmitDisabled, setIsLoginSubmitDisabled] = useState(true);
   const [isRegisterSubmitDisabled, setIsRegisterSubmitDisabled] =
@@ -122,6 +131,7 @@ function App() {
     if (!query.trim()) return;
 
     setIsSearching(true);
+    setHasSearched(true);
 
     // Simulate API with setTimeout
     setTimeout(() => {
@@ -163,6 +173,14 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setSearchResults([]);
+      setHasSearched(false);
+      setIsSearching(false);
+    }
+  }, [location]);
+
   function validateEmail(email) {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     return regex.test(email);
@@ -189,6 +207,7 @@ function App() {
                   onSearch={handleSearch}
                   isSearching={isSearching}
                   searchResults={searchResults}
+                  hasSearched={hasSearched}
                 />
               }
             ></Route>

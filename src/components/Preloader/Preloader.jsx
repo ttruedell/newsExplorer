@@ -4,7 +4,8 @@ import notFound from "../../assets/not-found.svg";
 import { initialNewsCards } from "../../utils/constants";
 import NewsCard from "../NewsCard/NewsCard";
 
-function Preloader({ loggedIn, isSearching, searchResults }) {
+function Preloader({ loggedIn, isSearching, searchResults, hasSearched }) {
+  if (!hasSearched) return null;
   // return (
   // <div className="preloader">
 
