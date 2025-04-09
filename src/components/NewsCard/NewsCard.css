@@ -13,6 +13,15 @@
   box-sizing: border-box;
 }
 
+.news-cards__results-header {
+  margin: 0;
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+  padding: 80px 0 0 104px;
+}
+
 .news-card {
   display: flex;
   flex-direction: wrap;
@@ -25,13 +34,41 @@
 .news-card__header-container {
   position: absolute;
   display: flex;
-  flex-direction: wrap;
+  flex-direction: row;
   align-items: center;
   width: 100%;
   font-family: "Roboto";
   font-weight: 500;
   top: 24px;
   z-index: 99;
+}
+
+.news-card__confirm-bookmark {
+  padding: 11px 20px;
+  /* margin: 0 0 0 24px; */
+  margin: 0;
+  border-radius: 10px;
+  background-color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.news-card__bookmark-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  border-radius: 8px;
+  background-color: #fff;
+  border-color: #fff;
+  cursor: pointer;
+}
+
+.news-card__bookmark-icon {
+  height: 24px;
+  width: 24px;
 }
 
 .news-card__keyword {
@@ -167,6 +204,12 @@
 } */
 
 @media screen and (max-width: 1024px) {
+  .news-cards__results-header {
+    padding: 40px 0 32px 40px;
+    font-size: 30px;
+    line-height: 34px;
+  }
+
   .news-cards {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 8px;
@@ -206,6 +249,10 @@
 }
 
 @media screen and (max-width: 767px) {
+  .news-cards__results-header {
+    padding: 40px 0 0px 40px;
+  }
+
   .news-cards {
     grid-template-columns: 1fr 1fr;
     gap: 8px;
@@ -214,6 +261,10 @@
 }
 
 @media screen and (max-width: 536px) {
+  .news-cards__results-header {
+    padding: 32px 0 46px 16px;
+  }
+
   .news-cards {
     grid-template-columns: 1fr;
     gap: 10px;
