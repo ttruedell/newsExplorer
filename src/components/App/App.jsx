@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 import "./App.css";
 
@@ -14,7 +15,7 @@ import { signUp, signIn } from "../../utils/auth";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [activeModal, setActiveModal] = useState("");
 
   const [email, setEmail] = useState("");
@@ -53,9 +54,14 @@ function App() {
     //     closeActiveModal();
     //   })
     //   .catch((err) => console.error("Login failed:", err));
-    setLoggedIn(true);
-    setCurrentUser({ username: "Elise", email }); // Simulated user
-    closeActiveModal();
+    const userData = { username: "Elise", email }; // Simulated user
+    if (email && password) {
+      setLoggedIn(true);
+      console.log(loggedIn);
+      setCurrentUser(userData);
+      localStorage.setItem("user", JSON.stringify(userData));
+      closeActiveModal();
+    }
   };
 
   const handleRegister = (values) => {
@@ -72,6 +78,8 @@ function App() {
   const handleLogout = () => {
     setCurrentUser(null);
     setLoggedIn(false);
+    console.log(loggedIn);
+    localStorage.removeItem("user");
     navigate("/");
   };
 
@@ -121,62 +129,76 @@ function App() {
     };
   }, [activeModal]);
 
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setCurrentUser(JSON.parse(storedUser));
+      setLoggedIn(true);
+    }
+  }, []);
+
   function validateEmail(email) {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     return regex.test(email);
   }
 
   return (
-    <div className="page">
-      <div className="page__content">
-        <Header
-          loginClick={handleLoginClick}
-          loggedIn={loggedIn}
-          handleLogout={handleLogout}
-          currentUser={currentUser}
-          isModalOpen={activeModal === "login" || activeModal === "register"}
-          menuOpen={menuOpen}
-          setMenuOpen={setMenuOpen}
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className="page">
+        <div className="page__content">
+          <Header
+            loginClick={handleLoginClick}
+            loggedIn={loggedIn}
+            handleLogout={handleLogout}
+            isModalOpen={activeModal === "login" || activeModal === "register"}
+            menuOpen={menuOpen}
+            setMenuOpen={setMenuOpen}
+          />
+          <Routes>
+            <Route path="/" element={<Main loggedIn={loggedIn} />}></Route>
+            <Route
+              path="/saved-news"
+              element={
+                loggedIn ? <ArticleSection /> : <Navigate to="/" replace />
+              }
+            ></Route>
+          </Routes>
+          <Footer />
+        </div>
+        <LoginModal
+          isOpen={activeModal === "login"}
+          handleCloseModal={handleModalClose}
+          onSwitchModal={handleUserModal}
+          validateEmail={validateEmail}
+          handleLogin={handleLogin}
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          isSubmitDisabled={isLoginSubmitDisabled}
+          setIsSubmitDisabled={setIsLoginSubmitDisabled}
+          errors={loginErrors}
+          setErrors={setLoginErrors}
         />
-        <Routes>
-          <Route path="/" element={<Main loggedIn={loggedIn} />}></Route>
-          <Route path="/saved-news" element={<ArticleSection />}></Route>
-        </Routes>
-        <Footer />
+        <RegisterModal
+          isOpen={activeModal === "register"}
+          handleCloseModal={handleModalClose}
+          onSwitchModal={handleUserModal}
+          validateEmail={validateEmail}
+          handleRegister={handleRegister}
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          username={username}
+          setUsername={setUsername}
+          isSubmitDisabled={isRegisterSubmitDisabled}
+          setIsSubmitDisabled={setIsRegisterSubmitDisabled}
+          errors={registerErrors}
+          setErrors={setRegisterErrors}
+        />
       </div>
-      <LoginModal
-        isOpen={activeModal === "login"}
-        handleCloseModal={handleModalClose}
-        onSwitchModal={handleUserModal}
-        validateEmail={validateEmail}
-        handleLogin={handleLogin}
-        email={email}
-        setEmail={setEmail}
-        password={password}
-        setPassword={setPassword}
-        isSubmitDisabled={isLoginSubmitDisabled}
-        setIsSubmitDisabled={setIsLoginSubmitDisabled}
-        errors={loginErrors}
-        setErrors={setLoginErrors}
-      />
-      <RegisterModal
-        isOpen={activeModal === "register"}
-        handleCloseModal={handleModalClose}
-        onSwitchModal={handleUserModal}
-        validateEmail={validateEmail}
-        handleRegister={handleRegister}
-        email={email}
-        setEmail={setEmail}
-        password={password}
-        setPassword={setPassword}
-        username={username}
-        setUsername={setUsername}
-        isSubmitDisabled={isRegisterSubmitDisabled}
-        setIsSubmitDisabled={setIsRegisterSubmitDisabled}
-        errors={registerErrors}
-        setErrors={setRegisterErrors}
-      />
-    </div>
+    </CurrentUserContext.Provider>
   );
 }
 

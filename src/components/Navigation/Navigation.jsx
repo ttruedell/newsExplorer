@@ -1,9 +1,8 @@
 import "./Navigation.css";
 import { Link, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
-// import { useContext } from "react";
+
 import logout from "../../assets/logout.png";
 import logout_home from "../../assets/logout2.png";
 
@@ -15,11 +14,12 @@ function Navigation({
   loginClick,
   loggedIn,
   handleLogout,
-  currentUser,
   isModalOpen,
   menuOpen,
   setMenuOpen,
 }) {
+  const currentUser = useContext(CurrentUserContext);
+
   const location = useLocation();
   const isHome = location.pathname === "/";
   const isSavedNews = location.pathname === "/saved-news";

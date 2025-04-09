@@ -7,7 +7,6 @@ function Header({
   loginClick,
   loggedIn,
   handleLogout,
-  currentUser,
   isModalOpen,
   menuOpen,
   setMenuOpen,
@@ -36,7 +35,6 @@ function Header({
           loginClick={loginClick}
           loggedIn={loggedIn}
           handleLogout={handleLogout}
-          currentUser={currentUser}
           isModalOpen={isModalOpen}
           menuOpen={menuOpen}
           setMenuOpen={setMenuOpen}
