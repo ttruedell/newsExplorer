@@ -4,7 +4,7 @@ import notFound from "../../assets/not-found.svg";
 import { initialNewsCards } from "../../utils/constants";
 import NewsCard from "../NewsCard/NewsCard";
 
-function Preloader() {
+function Preloader(loggedIn) {
   return (
     <div className="preloader">
       {/* <div className="prelaoder__loading">
@@ -29,7 +29,7 @@ function Preloader() {
         <h2 className="news-cards__results-header">Search Results</h2>
         <ul className="news-cards">
           {initialNewsCards.map((card, index) => (
-            <NewsCard key={index} card={card} />
+            <NewsCard key={index} card={card} loggedIn={loggedIn} />
           ))}
         </ul>
       </div>

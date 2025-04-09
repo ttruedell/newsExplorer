@@ -3,11 +3,11 @@ import SearchForm from "../SearchForm/SearchForm";
 import About from "../About/About";
 import Preloader from "../Preloader/Preloader";
 
-function Main() {
+function Main(loggedIn, setLoggedIn) {
   return (
     <main className="main">
       <SearchForm />
-      <Preloader />
+      <Preloader loggedIn={loggedIn} />
       <About />
     </main>
   );

@@ -24,7 +24,7 @@
 
 .news-card {
   display: flex;
-  flex-direction: wrap;
+  flex-direction: row;
   position: relative;
   width: 400px;
   height: 576px;
@@ -41,6 +41,11 @@
   font-weight: 500;
   top: 24px;
   z-index: 99;
+}
+
+.news-card__header-container_save {
+  justify-content: flex-end;
+  right: 24px;
 }
 
 .news-card__confirm-bookmark {
@@ -60,13 +65,16 @@
   height: 40px;
   width: 40px;
   padding: 0;
+  margin: 0 0 0 5px;
   border-radius: 8px;
   background-color: #fff;
-  border-color: #fff;
+  border: none;
   cursor: pointer;
 }
 
 .news-card__bookmark-icon {
+  margin: 0;
+  padding: 0;
   height: 24px;
   width: 24px;
 }
@@ -189,25 +197,22 @@
   }
 }
 
-/* @media screen and (max-width: 1024px) {
-  .news-cards {
-    grid-template-columns: 1fr 1fr;
-    column-gap: 16px;
-  }
-} */
-
-/* @media screen and (max-width: 896px) {
-  .news-cards {
-    grid-template-columns: 1fr;
-    column-gap: 16px;
-  }
-} */
-
 @media screen and (max-width: 1024px) {
   .news-cards__results-header {
     padding: 40px 0 32px 40px;
     font-size: 30px;
     line-height: 34px;
+  }
+
+  .news-card__header-container {
+    justify-content: space-between;
+    top: 8px;
+  }
+
+  .news-card__header-container_save {
+    top: 8px;
+    right: 8px;
+    justify-content: flex-end;
   }
 
   .news-cards {
@@ -223,11 +228,6 @@
   .news-card__image {
     width: 224px;
     height: 150px;
-  }
-
-  .news-card__header-container {
-    justify-content: space-between;
-    top: 8px;
   }
 
   .news-card__keyword {

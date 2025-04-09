@@ -5,21 +5,37 @@ import bookmark from "../../assets/bookmark.jpg";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
-function NewsCard({ card }) {
+function NewsCard({ card, loggedIn }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const [showConfirm, setShowConfirm] = useState(false);
+  const [hoveringBookmark, setHoveringBookmark] = useState(false);
+  // const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     // <div className="news-cards">
     <li className="news-card">
       {isHome ? (
-        <div className="news-card__header-container">
-          <h2 className="news-card__confirm-bookmark">
-            Sign in to save articles
-          </h2>
-
-          <button className="news-card__bookmark-btn">
+        <div
+          className="news-card__header-container 
+        news-card__header-container_save"
+        >
+          {loggedIn && (
+            <h2
+              className="news-card__confirm-bookmark"
+              style={{
+                opacity: hoveringBookmark ? 1 : 0,
+                transition: "opacity 0.5s ease-in-out",
+              }}
+            >
+              Sign in to save articles
+            </h2>
+          )}
+          <button
+            className="news-card__bookmark-btn"
+            onMouseEnter={() => setHoveringBookmark(true)}
+            onMouseLeave={() => setHoveringBookmark(false)}
+          >
             <img
               className="news-card__bookmark-icon"
               src={bookmark}
@@ -28,7 +44,10 @@ function NewsCard({ card }) {
           </button>
         </div>
       ) : (
-        <div className="news-card__header-container">
+        <div
+          className="news-card__header-container
+        news-card__header-container_delete"
+        >
           <h2 className="news-card__keyword">example</h2>
           <h2
             className="news-card__confirm-remove"

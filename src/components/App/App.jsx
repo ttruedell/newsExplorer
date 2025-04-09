@@ -14,7 +14,7 @@ import { signUp, signIn } from "../../utils/auth";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [activeModal, setActiveModal] = useState("");
 
   const [email, setEmail] = useState("");
@@ -139,7 +139,7 @@ function App() {
           setMenuOpen={setMenuOpen}
         />
         <Routes>
-          <Route path="/" element={<Main />}></Route>
+          <Route path="/" element={<Main loggedIn={loggedIn} />}></Route>
           <Route path="/saved-news" element={<ArticleSection />}></Route>
         </Routes>
         <Footer />
