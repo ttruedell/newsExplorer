@@ -38,6 +38,10 @@ function NewsCard({ card, loggedIn }) {
           >
             <img
               className="news-card__bookmark-icon"
+              style={{
+                opacity: hoveringBookmark ? 1 : 0.29,
+                transition: "opacity 0.5s ease-in-out",
+              }}
               src={bookmark}
               alt="bookmark-icon"
             />
@@ -67,7 +71,7 @@ function NewsCard({ card, loggedIn }) {
             <img
               className="news-card__remove-icon"
               style={{
-                opacity: showConfirm ? 0.5 : 1,
+                opacity: showConfirm ? 1 : 0.29,
                 transition: "opacity 0.5s ease-in-out",
               }}
               src={remove}
