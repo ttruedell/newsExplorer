@@ -1,16 +1,20 @@
 import "./NewsCard.css";
 import remove from "../../assets/trash.jpg";
 import placeholder from "../../assets/random-image-1.jpg";
-import bookmark from "../../assets/bookmark.jpg";
+import bookmark from "../../assets/bookmark.svg";
+import bookmark_active from "../../assets/bookmark_active.svg";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
-function NewsCard({ card, loggedIn, handleBookmark, deleteCard }) {
+function NewsCard({ card, loggedIn, handleBookmark, deleteCard, savedNews }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const [showConfirm, setShowConfirm] = useState(false);
   const [hoveringBookmark, setHoveringBookmark] = useState(false);
   // const [loggedIn, setLoggedIn] = useState(false);
+
+  const isBookmarked =
+    Array.isArray(savedNews) && savedNews.some((saved) => saved.id === card.id);
 
   return (
     // <div className="news-cards">
@@ -38,12 +42,14 @@ function NewsCard({ card, loggedIn, handleBookmark, deleteCard }) {
             onClick={() => handleBookmark(card)}
           >
             <img
-              className="news-card__bookmark-icon"
+              className={`news-card__bookmark-icon ${
+                isBookmarked ? "bookmarked" : ""
+              }`}
               style={{
-                opacity: hoveringBookmark ? 1 : 0.29,
+                opacity: isBookmarked ? 1 : hoveringBookmark ? 1 : 0.29,
                 transition: "opacity 0.5s ease-in-out",
               }}
-              src={bookmark}
+              src={isBookmarked ? bookmark_active : bookmark}
               alt="bookmark-icon"
             />
           </button>

@@ -10,6 +10,7 @@ function Preloader({
   searchResults,
   hasSearched,
   handleBookmark,
+  savedNews,
 }) {
   if (!hasSearched) return null;
   // return (
@@ -58,6 +59,7 @@ function Preloader({
                   card={card}
                   loggedIn={loggedIn}
                   handleBookmark={handleBookmark}
+                  savedNews={savedNews}
                 />
               ))
             }

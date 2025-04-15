@@ -164,11 +164,11 @@ function App() {
       keyword: query,
     };
 
-    const isAlreadySaved = savedNews.some(
-      (saved) => saved.title === card.title
-    );
+    const isAlreadySaved = savedNews.some((saved) => saved.id === card.id);
 
-    if (!isAlreadySaved) {
+    if (isAlreadySaved) {
+      setSavedNews(savedNews.filter((saved) => saved.id !== card.id));
+    } else {
       setSavedNews((prev) => [...prev, cardWithKeyword]);
     }
   };
@@ -241,6 +241,7 @@ function App() {
                   searchResults={searchResults}
                   hasSearched={hasSearched}
                   handleBookmark={handleBookmark}
+                  savedNews={savedNews}
                 />
               }
             ></Route>

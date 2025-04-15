@@ -12,6 +12,7 @@ function Main({
   searchResults,
   hasSearched,
   handleBookmark,
+  savedNews,
 }) {
   return (
     <main className="main">
@@ -22,6 +23,7 @@ function Main({
         searchResults={searchResults}
         hasSearched={hasSearched}
         handleBookmark={handleBookmark}
+        savedNews={savedNews}
       />
       <About />
     </main>
