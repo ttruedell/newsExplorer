@@ -2,7 +2,7 @@ import "./ArticleSection.css";
 import NewsCard from "../NewsCard/NewsCard";
 import { initialNewsCards } from "../../utils/constants";
 
-function ArticleSection({ loggedIn, savedNews }) {
+function ArticleSection({ loggedIn, savedNews, handleDelete }) {
   const keywords = [
     ...new Set(savedNews.map((card) => card.keyword).filter(Boolean)),
   ];
@@ -28,7 +28,12 @@ function ArticleSection({ loggedIn, savedNews }) {
       <ul className="news-cards">
         {
           /*initialNewsCards*/ savedNews.map((card, index) => (
-            <NewsCard key={index} card={card} loggedIn={loggedIn} />
+            <NewsCard
+              key={index}
+              card={card}
+              loggedIn={loggedIn}
+              deleteCard={handleDelete}
+            />
           ))
         }
       </ul>

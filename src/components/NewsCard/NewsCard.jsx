@@ -5,7 +5,7 @@ import bookmark from "../../assets/bookmark.jpg";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
-function NewsCard({ card, loggedIn, handleBookmark }) {
+function NewsCard({ card, loggedIn, handleBookmark, deleteCard }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const [showConfirm, setShowConfirm] = useState(false);
@@ -68,6 +68,7 @@ function NewsCard({ card, loggedIn, handleBookmark }) {
             className="news-card__remove-btn"
             onMouseEnter={() => setShowConfirm(true)}
             onMouseLeave={() => setShowConfirm(false)}
+            onClick={() => deleteCard(card)}
           >
             <img
               className="news-card__remove-icon"

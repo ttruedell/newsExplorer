@@ -173,6 +173,12 @@ function App() {
     }
   };
 
+  const handleDelete = (cardToDelete) => {
+    setSavedNews((prevSavedNews) =>
+      prevSavedNews.filter((card) => card.id !== cardToDelete.id)
+    );
+  };
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -245,6 +251,7 @@ function App() {
                   <ArticleSection
                     savedNews={savedNews}
                     loggedIn={loggedIn}
+                    handleDelete={handleDelete}
                   />
                 ) : (
                   <Navigate to="/" replace />

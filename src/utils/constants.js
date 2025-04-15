@@ -2,6 +2,7 @@ import placeholderImage from "../assets/random-image-1.jpg";
 
 export const initialNewsCards = [
   {
+    id: "123456",
     date: "November 6, 2024",
     title: "Placeholder 1",
     link: "url-placeholder",
@@ -10,6 +11,7 @@ export const initialNewsCards = [
     author: "National Geographic",
   },
   {
+    id: "234567",
     date: "April 9, 2024",
     title: "Placeholder 2",
     link: "url-placeholder",
@@ -18,6 +20,7 @@ export const initialNewsCards = [
     author: "AP NEws",
   },
   {
+    id: "345678",
     date: "March 28, 2024",
     title: "Placeholder 3",
     link: "url-placeholder",
@@ -27,6 +30,7 @@ export const initialNewsCards = [
   },
 
   {
+    id: "456789",
     date: "November 6, 2024",
     title: "Placeholder 4",
     link: "url-placeholder",
