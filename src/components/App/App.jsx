@@ -37,6 +37,10 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
 
+  const [savedNews, setSavedNews] = useState([]);
+  // const [searchQuery, setSearchQuery] = useState("");
+  const [query, setQuery] = useState("");
+
   const [isLoginSubmitDisabled, setIsLoginSubmitDisabled] = useState(true);
   const [isRegisterSubmitDisabled, setIsRegisterSubmitDisabled] =
     useState(true);
@@ -149,6 +153,26 @@ function App() {
     }, 1500);
   };
 
+  const handleBookmark = (card) => {
+    if (!loggedIn) {
+      setActiveModal("login");
+      return;
+    }
+
+    const cardWithKeyword = {
+      ...card,
+      keyword: query,
+    };
+
+    const isAlreadySaved = savedNews.some(
+      (saved) => saved.title === card.title
+    );
+
+    if (!isAlreadySaved) {
+      setSavedNews((prev) => [...prev, cardWithKeyword]);
+    }
+  };
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -204,17 +228,27 @@ function App() {
               element={
                 <Main
                   loggedIn={loggedIn}
+                  query={query}
+                  setQuery={setQuery}
                   onSearch={handleSearch}
                   isSearching={isSearching}
                   searchResults={searchResults}
                   hasSearched={hasSearched}
+                  handleBookmark={handleBookmark}
                 />
               }
             ></Route>
             <Route
               path="/saved-news"
               element={
-                loggedIn ? <ArticleSection /> : <Navigate to="/" replace />
+                loggedIn ? (
+                  <ArticleSection
+                    savedNews={savedNews}
+                    loggedIn={loggedIn}
+                  />
+                ) : (
+                  <Navigate to="/" replace />
+                )
               }
             ></Route>
           </Routes>

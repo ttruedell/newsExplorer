@@ -5,7 +5,7 @@ import bookmark from "../../assets/bookmark.jpg";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
-function NewsCard({ card, loggedIn }) {
+function NewsCard({ card, loggedIn, handleBookmark }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const [showConfirm, setShowConfirm] = useState(false);
@@ -35,6 +35,7 @@ function NewsCard({ card, loggedIn }) {
             className="news-card__bookmark-btn"
             onMouseEnter={() => setHoveringBookmark(true)}
             onMouseLeave={() => setHoveringBookmark(false)}
+            onClick={() => handleBookmark(card)}
           >
             <img
               className="news-card__bookmark-icon"

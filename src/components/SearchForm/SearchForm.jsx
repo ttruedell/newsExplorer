@@ -3,8 +3,8 @@ import { useState } from "react";
 import "./SearchForm.css";
 import background from "../../assets/search-form-background.svg";
 
-function SearchForm({ onSearch }) {
-  const [query, setQuery] = useState("");
+function SearchForm({ query, setQuery, onSearch }) {
+  // const [query, setQuery] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
