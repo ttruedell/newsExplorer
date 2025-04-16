@@ -16,6 +16,10 @@ function NewsCard({ card, loggedIn, handleBookmark, deleteCard, savedNews }) {
   const isBookmarked =
     Array.isArray(savedNews) && savedNews.some((saved) => saved.id === card.id);
 
+  const keywords = Array.isArray(savedNews)
+    ? [...new Set(savedNews.map((card) => card.keyword).filter(Boolean))]
+    : [];
+
   return (
     // <div className="news-cards">
     <li className="news-card">
@@ -59,7 +63,7 @@ function NewsCard({ card, loggedIn, handleBookmark, deleteCard, savedNews }) {
           className="news-card__header-container
         news-card__header-container_delete"
         >
-          <h2 className="news-card__keyword">example</h2>
+          <h2 className="news-card__keyword">{card.keyword || "No keyword"}</h2>
           <h2
             className="news-card__confirm-remove"
             style={{
