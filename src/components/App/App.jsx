@@ -38,8 +38,9 @@ function App() {
   const [hasSearched, setHasSearched] = useState(false);
 
   const [savedNews, setSavedNews] = useState([]);
-  // const [searchQuery, setSearchQuery] = useState("");
   const [query, setQuery] = useState("");
+
+  const [visibleCount, setVisibleCount] = useState(3);
 
   const [isLoginSubmitDisabled, setIsLoginSubmitDisabled] = useState(true);
   const [isRegisterSubmitDisabled, setIsRegisterSubmitDisabled] =
@@ -136,6 +137,7 @@ function App() {
 
     setIsSearching(true);
     setHasSearched(true);
+    setVisibleCount(3);
 
     // Simulate API with setTimeout
     setTimeout(() => {
@@ -179,6 +181,10 @@ function App() {
     );
   };
 
+  const handleShowMore = () => {
+    setVisibleCount((prev) => prev + 3);
+  };
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -208,6 +214,12 @@ function App() {
       setSearchResults([]);
       setHasSearched(false);
       setIsSearching(false);
+    }
+  }, [location]);
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setVisibleCount(3);
     }
   }, [location]);
 
@@ -242,6 +254,9 @@ function App() {
                   hasSearched={hasSearched}
                   handleBookmark={handleBookmark}
                   savedNews={savedNews}
+                  visibleCount={visibleCount}
+                  setVisibleCount={setVisibleCount}
+                  handleShowMore={handleShowMore}
                 />
               }
             ></Route>
@@ -253,6 +268,9 @@ function App() {
                     savedNews={savedNews}
                     loggedIn={loggedIn}
                     handleDelete={handleDelete}
+                    visibleCount={visibleCount}
+                    setVisibleCount={setVisibleCount}
+                    handleShowMore={handleShowMore}
                   />
                 ) : (
                   <Navigate to="/" replace />

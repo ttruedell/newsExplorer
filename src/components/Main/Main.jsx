@@ -13,6 +13,9 @@ function Main({
   hasSearched,
   handleBookmark,
   savedNews,
+  visibleCount,
+  setVisibleCount,
+  handleShowMore,
 }) {
   return (
     <main className="main">
@@ -24,6 +27,9 @@ function Main({
         hasSearched={hasSearched}
         handleBookmark={handleBookmark}
         savedNews={savedNews}
+        visibleCount={visibleCount}
+        setVisibleCount={setVisibleCount}
+        handleShowMore={handleShowMore}
       />
       <About />
     </main>

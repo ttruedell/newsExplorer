@@ -11,6 +11,8 @@ function Preloader({
   hasSearched,
   handleBookmark,
   savedNews,
+  visibleCount,
+  handleShowMore,
 }) {
   if (!hasSearched) return null;
   // return (
@@ -50,20 +52,29 @@ function Preloader({
     <div className="preloader">
       <div className="prelaoder__results">
         <div className="prelaoder__found-results">
-          <h2 className="news-cards__results-header">Search Results</h2>
-          <ul className="news-cards">
-            {
-              /*initialNewsCards*/ searchResults.map((card, index) => (
-                <NewsCard
-                  key={index}
-                  card={card}
-                  loggedIn={loggedIn}
-                  handleBookmark={handleBookmark}
-                  savedNews={savedNews}
-                />
-              ))
-            }
-          </ul>
+          <div>
+            <h2 className="news-cards__results-header">Search Results</h2>
+            <ul className="news-cards">
+              {
+                /*initialNewsCards*/ searchResults
+                  .slice(0, visibleCount)
+                  .map((card, index) => (
+                    <NewsCard
+                      key={index}
+                      card={card}
+                      loggedIn={loggedIn}
+                      handleBookmark={handleBookmark}
+                      savedNews={savedNews}
+                    />
+                  ))
+              }
+            </ul>
+          </div>
+          {searchResults.length > visibleCount && (
+            <button className="preloader__show-more" onClick={handleShowMore}>
+              Show More
+            </button>
+          )}
         </div>
       </div>
     </div>
