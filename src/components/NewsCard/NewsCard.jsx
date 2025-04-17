@@ -103,8 +103,9 @@ function NewsCard({ card, loggedIn, handleBookmark, deleteCard, savedNews }) {
           <p className="news-card__date">{card.date}</p>
           <h2 className="news-card__title">{card.title}</h2>
           <p className="news-card__text">{card.text}</p>
-          <h3 className="news-card__author">{card.author}</h3>
+          {/* <h3 className="news-card__author">{card.author}</h3> */}
         </article>
+        <h3 className="news-card__author">{card.author}</h3>
       </div>
     </li>
     // </div>
