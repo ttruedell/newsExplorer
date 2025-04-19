@@ -4,7 +4,7 @@ import placeholder from "../../assets/random-image-1.jpg";
 import bookmark from "../../assets/bookmark.svg";
 import bookmark_active from "../../assets/bookmark_active.svg";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function NewsCard({ card, loggedIn, handleBookmark, deleteCard, savedNews }) {
   const location = useLocation();
@@ -14,7 +14,9 @@ function NewsCard({ card, loggedIn, handleBookmark, deleteCard, savedNews }) {
   // const [loggedIn, setLoggedIn] = useState(false);
 
   const isBookmarked =
-    Array.isArray(savedNews) && savedNews.some((saved) => saved.id === card.id);
+    loggedIn &&
+    Array.isArray(savedNews) &&
+    savedNews.some((saved) => saved.id === card.id);
 
   const keywords = Array.isArray(savedNews)
     ? [...new Set(savedNews.map((card) => card.keyword).filter(Boolean))]
