@@ -45,6 +45,10 @@
   padding: 34px 36px 28px 36px;
 }
 
+.modal__content_confirm-register {
+  padding: 42px 36px 50px 36px;
+}
+
 .modal__header {
   margin: 0;
   font-family: "Roboto";
@@ -52,6 +56,10 @@
   font-weight: 900;
   line-height: 32px;
   text-align: left;
+}
+
+.modal__header_confirm-register {
+  line-height: 28px;
 }
 
 .modal__input-header {
@@ -117,6 +125,19 @@
 .modal__submit_disabled {
   background-color: #d1d2d6;
   color: #b6bcbf;
+}
+
+.modal__sign-in {
+  margin: 14px 0 0 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+  color: #2f71e5;
 }
 
 .modal__switch-modal {

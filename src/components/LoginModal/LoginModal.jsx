@@ -73,6 +73,7 @@ const LoginModal = ({
         e.preventDefault();
         handleLogin({ email, password });
       }}
+      showForm={true}
     >
       <label className="modal__label">
         <p className="modal__input-header">Email</p>

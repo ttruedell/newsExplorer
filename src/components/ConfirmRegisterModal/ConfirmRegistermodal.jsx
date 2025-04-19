@@ -1,46 +1,21 @@
 import { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const ConfirmRegisterModal = ({
-  isOpen,
-  handleCloseModal,
-  onSwitchModal,
-  validateEmail,
-  handleLogin,
-  email,
-  setEmail,
-  password,
-  setPassword,
-  isSubmitDisabled,
-  setIsSubmitDisabled,
-  errors,
-  setErrors,
-}) => {
-  //   useEffect(() => {
-  //     if (!isOpen) {
-  //       setEmail("");
-  //       setPassword("");
-  //       setErrors({ email: "", password: "" });
-  //     }
-  //   }, [isOpen]);
-
+const ConfirmRegisterModal = ({ isOpen, handleCloseModal, onSwitchModal }) => {
   return (
     <ModalWithForm
       isOpen={isOpen}
       onClose={handleCloseModal}
       name="RegisterConfirm"
-      title=""
-      buttonTextSubmit="Sign in"
-      buttonTextSwitch=""
+      title="Registration successfully completed!"
       onSwitchModal={onSwitchModal}
       isSubmitDisabled={false}
       onSubmit={(e) => {
         e.preventDefault();
         onSwitchModal();
       }}
-    >
-      <h1>Registration successfully completed!</h1>
-    </ModalWithForm>
+      showForm={false}
+    ></ModalWithForm>
   );
 };
 

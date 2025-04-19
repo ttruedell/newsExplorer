@@ -238,7 +238,11 @@ function App() {
             loginClick={handleLoginClick}
             loggedIn={loggedIn}
             handleLogout={handleLogout}
-            isModalOpen={activeModal === "login" || activeModal === "register"}
+            isModalOpen={
+              activeModal === "login" ||
+              activeModal === "register" ||
+              activeModal === "confirm-register"
+            }
             menuOpen={menuOpen}
             setMenuOpen={setMenuOpen}
           />

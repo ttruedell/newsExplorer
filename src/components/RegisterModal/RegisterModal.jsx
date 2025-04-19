@@ -86,6 +86,7 @@ const RegisterModal = ({
         handleRegister({ username, email, password });
         setActiveModal("confirm-register");
       }}
+      showForm={true}
     >
       <label className="modal__label">
         <p className="modal__input-header">Email</p>
