@@ -16,6 +16,7 @@ import Footer from "../Footer/Footer";
 import ArticleSection from "../ArticlesSection/ArticleSection";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import ConfirmRegisterModal from "../ConfirmRegisterModal/ConfirmRegistermodal";
 
 import { initialNewsCards } from "../../utils/constants";
 
@@ -58,7 +59,7 @@ function App() {
   });
 
   const handleRegisterClick = () => {
-    setActiveModal("register");
+    setActiveModal("confirm-register");
   };
 
   const handleLoginClick = () => {
@@ -88,7 +89,8 @@ function App() {
     //   .then(() => handleLogin(values))
     //   .catch((err) => console.error("Registration failed:", err));
     setTimeout(() => {
-      handleLogin({ email, password });
+      // handleLogin({ email, password });
+      setActiveModal("confirm-register");
     }, 500);
   };
 
@@ -297,6 +299,7 @@ function App() {
         />
         <RegisterModal
           isOpen={activeModal === "register"}
+          setActiveModal={setActiveModal}
           handleCloseModal={handleModalClose}
           onSwitchModal={handleUserModal}
           validateEmail={validateEmail}
@@ -311,6 +314,12 @@ function App() {
           setIsSubmitDisabled={setIsRegisterSubmitDisabled}
           errors={registerErrors}
           setErrors={setRegisterErrors}
+        />
+        <ConfirmRegisterModal
+          isOpen={activeModal === "confirm-register"}
+          handleCloseModal={handleModalClose}
+          onSwitchModal={() => setActiveModal("login")}
+          setActiveModal={setActiveModal}
         />
       </div>
     </CurrentUserContext.Provider>

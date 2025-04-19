@@ -39,7 +39,7 @@ function ModalWithForm({
           >
             {buttonTextSubmit}
           </button>
-          {
+          {buttonTextSwitch && (
             <button className="modal__switch-modal" type="button">
               <pre className="modal__switch-text modal__switch-text_or">
                 or{" "}
@@ -51,7 +51,7 @@ function ModalWithForm({
                 {buttonTextSwitch}
               </p>
             </button>
-          }
+          )}
         </form>
       </div>
     </div>

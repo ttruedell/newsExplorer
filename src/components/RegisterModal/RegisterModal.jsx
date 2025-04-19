@@ -3,6 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const RegisterModal = ({
   isOpen,
+  setActiveModal,
   handleCloseModal,
   onSwitchModal,
   validateEmail,
@@ -83,6 +84,7 @@ const RegisterModal = ({
       onSubmit={(e) => {
         e.preventDefault();
         handleRegister({ username, email, password });
+        setActiveModal("confirm-register");
       }}
     >
       <label className="modal__label">
