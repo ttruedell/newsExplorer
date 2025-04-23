@@ -152,8 +152,8 @@ function App() {
 
     fetchNews(query)
       .then((articles) => {
-        const mapped = articles.map((a, index) => ({
-          id: index,
+        const mapped = articles.map((a) => ({
+          id: `${a.title}-${a.publishedAt}`,
           title: a.title,
           date: a.publishedAt,
           text: a.description,
