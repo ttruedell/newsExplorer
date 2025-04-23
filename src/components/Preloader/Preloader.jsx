@@ -13,6 +13,7 @@ function Preloader({
   savedNews,
   visibleCount,
   handleShowMore,
+  formatDate,
 }) {
   if (!hasSearched) return null;
   // return (
@@ -33,7 +34,11 @@ function Preloader({
     );
   }
 
-  if (!isSearching && (!searchResults || searchResults.length === 0)) {
+  if (
+    !isSearching &&
+    hasSearched &&
+    (!searchResults || searchResults.length === 0)
+  ) {
     return (
       <div className="preloader">
         <div className="preloader__reuslts">
@@ -42,6 +47,21 @@ function Preloader({
             <h2 className="preloader__header">Nothing Found</h2>
             <p className="prelaoder__text">Sorry, but nothing matched</p>
             <p className="prelaoder__text"> your results.</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (searchResults === "error") {
+    return (
+      <div className="preloader">
+        <div className="preloader__reuslts">
+          <div className="prelaoder__no-results">
+            <h2 className="preloader__header">
+              Sorry, something went wrong during the request. Please try again
+              later.
+            </h2>
           </div>
         </div>
       </div>
@@ -65,6 +85,7 @@ function Preloader({
                       loggedIn={loggedIn}
                       handleBookmark={handleBookmark}
                       savedNews={savedNews}
+                      formatDate={formatDate}
                     />
                   ))
               }

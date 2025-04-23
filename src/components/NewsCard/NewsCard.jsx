@@ -6,7 +6,14 @@ import bookmark_active from "../../assets/bookmark_active.svg";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-function NewsCard({ card, loggedIn, handleBookmark, deleteCard, savedNews }) {
+function NewsCard({
+  card,
+  loggedIn,
+  handleBookmark,
+  deleteCard,
+  savedNews,
+  formatDate,
+}) {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const [showConfirm, setShowConfirm] = useState(false);
@@ -102,7 +109,7 @@ function NewsCard({ card, loggedIn, handleBookmark, deleteCard, savedNews }) {
           alt="article-image"
         />
         <article className="news-card__article">
-          <p className="news-card__date">{card.date}</p>
+          <p className="news-card__date">{formatDate(card.date)}</p>
           <h2 className="news-card__title">{card.title}</h2>
           <p className="news-card__text">{card.text}</p>
           {/* <h3 className="news-card__author">{card.author}</h3> */}

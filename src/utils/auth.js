@@ -1,4 +1,4 @@
-import { checkResponse } from "./api";
+import { checkResponse } from "./newsApi";
 
 const baseUrl = "http://localhost:3000";
 

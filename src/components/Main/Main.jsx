@@ -16,6 +16,7 @@ function Main({
   visibleCount,
   setVisibleCount,
   handleShowMore,
+  formatDate,
 }) {
   return (
     <main className="main">
@@ -30,6 +31,7 @@ function Main({
         visibleCount={visibleCount}
         setVisibleCount={setVisibleCount}
         handleShowMore={handleShowMore}
+        formatDate={formatDate}
       />
       <About />
     </main>

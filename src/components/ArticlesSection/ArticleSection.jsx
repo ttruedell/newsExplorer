@@ -6,6 +6,7 @@ function ArticleSection({
   loggedIn,
   savedNews,
   handleDelete,
+  formatDate,
   // visibleCount,
   // handleShowMore,
 }) {
@@ -43,6 +44,7 @@ function ArticleSection({
                 card={card}
                 loggedIn={loggedIn}
                 deleteCard={handleDelete}
+                formatDate={formatDate}
               />
             ))
         }

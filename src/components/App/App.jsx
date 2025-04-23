@@ -19,10 +19,16 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import ConfirmRegisterModal from "../ConfirmRegisterModal/ConfirmRegistermodal";
 
 import { initialNewsCards } from "../../utils/constants";
+import { fetchNews, formatDate } from "../../utils/newsApi";
 
 import { signUp, signIn } from "../../utils/auth";
 
 function App() {
+  const newsApiBaseUrl =
+    process.env.NODE_ENV === "production"
+      ? "https://nomoreparties.co/news/v2/everything"
+      : "https://newsapi.org/v2/everything";
+
   const location = useLocation();
 
   const [currentUser, setCurrentUser] = useState(null);
@@ -135,26 +141,51 @@ function App() {
   };
 
   const handleSearch = (query) => {
-    if (!query.trim()) return;
+    if (!query.trim()) {
+      setSearchResults([]);
+      return;
+    }
 
     setIsSearching(true);
     setHasSearched(true);
     setVisibleCount(3);
 
-    // Simulate API with setTimeout
-    setTimeout(() => {
-      const q = query.toLowerCase();
-      const results = initialNewsCards.filter(({ title, text, author }) => {
-        return (
-          title.toLowerCase().includes(q) ||
-          text.toLowerCase().includes(q) ||
-          author.toLowerCase().includes(q)
-        );
+    fetchNews(query)
+      .then((articles) => {
+        const mapped = articles.map((a, index) => ({
+          id: index,
+          title: a.title,
+          date: a.publishedAt,
+          text: a.description,
+          author: a.source.name,
+          image: a.urlToImage,
+          keyword: query,
+        }));
+
+        setSearchResults(mapped);
+      })
+      .catch((err) => {
+        console.error(err);
+        setSearchResults("error");
+      })
+      .finally(() => {
+        setIsSearching(false);
       });
 
-      setSearchResults(results);
-      setIsSearching(false);
-    }, 1500);
+    // Simulate API with setTimeout
+    // setTimeout(() => {
+    //   const q = query.toLowerCase();
+    //   const results = initialNewsCards.filter(({ title, text, author }) => {
+    //     return (
+    //       title.toLowerCase().includes(q) ||
+    //       text.toLowerCase().includes(q) ||
+    //       author.toLowerCase().includes(q)
+    //     );
+    //   });
+
+    //   setSearchResults(results);
+    //   setIsSearching(false);
+    // }, 1500);
   };
 
   const handleBookmark = (card) => {
@@ -263,6 +294,7 @@ function App() {
                   visibleCount={visibleCount}
                   setVisibleCount={setVisibleCount}
                   handleShowMore={handleShowMore}
+                  formatDate={formatDate}
                 />
               }
             ></Route>
@@ -277,6 +309,7 @@ function App() {
                     visibleCount={visibleCount}
                     setVisibleCount={setVisibleCount}
                     handleShowMore={handleShowMore}
+                    formatDate={formatDate}
                   />
                 ) : (
                   <Navigate to="/" replace />
