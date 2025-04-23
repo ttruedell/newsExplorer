@@ -83,6 +83,17 @@
   font-size: 16px;
 }
 
+.search-form__error {
+  position: absolute;
+  bottom: -45px;
+
+  font-family: "Inter";
+  font-size: 18px;
+  color: red;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+}
+
 .search-form__button {
   height: 100%;
   /* max-width: 168px; This was a hinderance with <700px media screen*/

@@ -3,13 +3,15 @@ import { useState } from "react";
 import "./SearchForm.css";
 import background from "../../assets/search-form-background.svg";
 
-function SearchForm({ query, setQuery, onSearch }) {
+function SearchForm({ query, setQuery, onSearch, error, setSearchErrors }) {
   // const [query, setQuery] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (query.trim().length >= 1) {
       onSearch(query);
+    } else {
+      setSearchErrors({ keyword: "Please enter a keyword" });
     }
   };
 
@@ -32,10 +34,15 @@ function SearchForm({ query, setQuery, onSearch }) {
             type="text"
             placeholder="Enter topic"
             className="search-form__input"
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              if (error.keyword) setSearchErrors({ keyword: "" });
+            }}
+            value={query}
           />
           <button className="search-form__button">Search</button>
         </div>
+        {error.keyword && <p className="search-form__error">{error.keyword}</p>}
       </div>
     </form>
     // </section>

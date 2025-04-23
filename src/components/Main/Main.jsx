@@ -17,10 +17,18 @@ function Main({
   setVisibleCount,
   handleShowMore,
   formatDate,
+  error,
+  setSearchErrors,
 }) {
   return (
     <main className="main">
-      <SearchForm onSearch={onSearch} query={query} setQuery={setQuery} />
+      <SearchForm
+        onSearch={onSearch}
+        query={query}
+        setQuery={setQuery}
+        error={error}
+        setSearchErrors={setSearchErrors}
+      />
       <Preloader
         loggedIn={loggedIn}
         isSearching={isSearching}

@@ -64,6 +64,10 @@ function App() {
     username: "",
   });
 
+  const [searchErrors, setSearchErrors] = useState({
+    keyword: "",
+  });
+
   const handleRegisterClick = () => {
     setActiveModal("confirm-register");
   };
@@ -142,10 +146,11 @@ function App() {
 
   const handleSearch = (query) => {
     if (!query.trim()) {
-      setSearchResults([]);
+      setSearchResults({ keyword: "Please enter a keyword." });
       return;
     }
 
+    setSearchErrors({ keyword: "" });
     setIsSearching(true);
     setHasSearched(true);
     setVisibleCount(3);
@@ -295,6 +300,8 @@ function App() {
                   setVisibleCount={setVisibleCount}
                   handleShowMore={handleShowMore}
                   formatDate={formatDate}
+                  error={searchErrors}
+                  setSearchErrors={setSearchErrors}
                 />
               }
             ></Route>
