@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import "./SearchForm.css";
 import background from "../../assets/search-form-background.svg";
 
 function SearchForm({ query, setQuery, onSearch, error, setSearchErrors }) {
   // const [query, setQuery] = useState("");
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,6 +17,11 @@ function SearchForm({ query, setQuery, onSearch, error, setSearchErrors }) {
       setSearchErrors({ keyword: "Please enter a keyword" });
     }
   };
+
+  useEffect(() => {
+    setQuery("");
+    setSearchErrors({ keyword: "" });
+  }, [location]);
 
   return (
     // <section>

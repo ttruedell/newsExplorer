@@ -18,7 +18,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ConfirmRegisterModal from "../ConfirmRegisterModal/ConfirmRegistermodal";
 
-import { initialNewsCards } from "../../utils/constants";
+import { initialNewsCards, userData } from "../../utils/constants";
 import { fetchNews, formatDate } from "../../utils/newsApi";
 
 import { signUp, signIn } from "../../utils/auth";
@@ -44,7 +44,7 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
 
-  const [savedNews, setSavedNews] = useState([]);
+  // const [savedNews, setSavedNews] = useState([]);
   const [query, setQuery] = useState("");
 
   const [visibleCount, setVisibleCount] = useState(3);
@@ -89,12 +89,20 @@ function App() {
     //     closeActiveModal();
     //   })
     //   .catch((err) => console.error("Login failed:", err));
-    const userData = { username: "Elise", email }; // Simulated user
-    if (email && password) {
+
+    const matchedUser = userData.find(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (matchedUser) {
+      const updatedUser = {
+        ...matchedUser,
+        savedNews: matchedUser.savedNews || [],
+      };
       setLoggedIn(true);
       console.log("You are logged in:", !loggedIn);
-      setCurrentUser(userData);
-      localStorage.setItem("user", JSON.stringify(userData));
+      setCurrentUser(updatedUser);
+      localStorage.setItem("user", JSON.stringify(updatedUser));
       closeActiveModal();
     }
   };
@@ -105,10 +113,6 @@ function App() {
     //   .catch((err) => console.error("Registration failed:", err));
 
     if (registeredEmails.includes(email)) {
-      // setRegisterErrors((prev) => ({
-      //   ...prev,
-      //   email: "Email already registered",
-      // }));
       setEmailTakenError("This email is already registered.");
       setIsRegisterSubmitDisabled(true);
       return;
@@ -185,7 +189,7 @@ function App() {
           image: a.urlToImage,
           keyword: query,
         }));
-
+        console.log(query);
         setSearchResults(mapped);
       })
       .catch((err) => {
@@ -223,19 +227,43 @@ function App() {
       keyword: query,
     };
 
-    const isAlreadySaved = savedNews.some((saved) => saved.id === card.id);
+    const isAlreadySaved = currentUser.savedNews.some(
+      (saved) => saved.id === card.id
+    );
 
-    if (isAlreadySaved) {
-      setSavedNews(savedNews.filter((saved) => saved.id !== card.id));
-    } else {
-      setSavedNews((prev) => [...prev, cardWithKeyword]);
-    }
+    const updatedSavedNews = isAlreadySaved
+      ? currentUser.savedNews.filter((saved) => saved.id !== card.id)
+      : [...currentUser.savedNews, cardWithKeyword];
+
+    // if (isAlreadySaved) {
+    //   setSavedNews(savedNews.filter((saved) => saved.id !== card.id));
+    // } else {
+    //   setSavedNews((prev) => [...prev, cardWithKeyword]);
+    // }
+
+    const updatedUser = {
+      ...currentUser,
+      savedNews: updatedSavedNews,
+    };
+
+    setCurrentUser(updatedUser);
+    localStorage.setItem("user", JSON.stringify(updatedUser));
   };
 
   const handleDelete = (cardToDelete) => {
-    setSavedNews((prevSavedNews) =>
+    const updatedSavedNews =
+      /*setSavedNews((prevSavedNews) =>
       prevSavedNews.filter((card) => card.id !== cardToDelete.id)
-    );
+    );*/
+      currentUser.savedNews.filter((card) => card.id !== cardToDelete.id);
+
+    const updatedUser = {
+      ...currentUser,
+      savedNews: updatedSavedNews,
+    };
+
+    setCurrentUser(updatedUser);
+    localStorage.setItem("user", JSON.stringify(updatedUser));
   };
 
   const handleShowMore = () => {
@@ -261,7 +289,8 @@ function App() {
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      setCurrentUser(JSON.parse(storedUser));
+      const parsedUser = JSON.parse(storedUser);
+      setCurrentUser(parsedUser);
       setLoggedIn(true);
     }
   }, []);
@@ -271,11 +300,6 @@ function App() {
       setSearchResults([]);
       setHasSearched(false);
       setIsSearching(false);
-    }
-  }, [location]);
-
-  useEffect(() => {
-    if (location.pathname === "/") {
       setVisibleCount(3);
     }
   }, [location]);
@@ -314,7 +338,8 @@ function App() {
                   searchResults={searchResults}
                   hasSearched={hasSearched}
                   handleBookmark={handleBookmark}
-                  savedNews={savedNews}
+                  // savedNews={savedNews}
+                  savedNews={currentUser?.savedNews || []}
                   visibleCount={visibleCount}
                   setVisibleCount={setVisibleCount}
                   handleShowMore={handleShowMore}
@@ -329,7 +354,8 @@ function App() {
               element={
                 loggedIn ? (
                   <ArticleSection
-                    savedNews={savedNews}
+                    // savedNews={savedNews}
+                    savedNews={currentUser?.savedNews || []}
                     loggedIn={loggedIn}
                     handleDelete={handleDelete}
                     visibleCount={visibleCount}

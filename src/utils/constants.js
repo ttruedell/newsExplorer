@@ -62,3 +62,18 @@ export const initialNewsCards = [
     author: "AP News",
   },
 ];
+
+export const userData = [
+  {
+    username: "Elise",
+    email: "elise@example.com",
+    password: "example1234",
+    savedNews: [],
+  },
+  {
+    username: "Malcom",
+    email: "malcom23@example.com",
+    password: "example2345",
+    savedNews: [],
+  },
+];

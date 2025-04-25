@@ -55,6 +55,7 @@
   font-size: 20px;
   text-decoration: none;
   border: none;
+  outline: none;
   color: #fff;
   cursor: pointer;
   z-index: 9999;
