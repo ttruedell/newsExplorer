@@ -45,8 +45,23 @@
   padding: 34px 36px 28px 36px;
 }
 
-.modal__content_confirm-register {
+/* .modal__content_confirm-register {
   padding: 42px 36px 50px 36px;
+} */
+
+/* .modal__content_RegisterForm {
+  padding: 34px 36px 28px 36px;
+} */
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.modal__label {
+  width: 100%;
 }
 
 .modal__header {
@@ -106,6 +121,11 @@
   color: red;
 }
 
+.modal__input-error_taken-email {
+  position: absolute;
+  bottom: 110px;
+}
+
 .modal__submit {
   font-family: "Roboto";
   font-weight: 500;
@@ -120,6 +140,10 @@
   background-color: #2f71e5;
   cursor: pointer;
   transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.modal__submit_type_RegisterForm {
+  margin: 39px 0 16px 0;
 }
 
 .modal__submit_disabled {

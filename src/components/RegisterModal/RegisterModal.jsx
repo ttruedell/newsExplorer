@@ -18,6 +18,9 @@ const RegisterModal = ({
   setIsSubmitDisabled,
   errors,
   setErrors,
+  registeredEmails,
+  emailTakenError,
+  setEmailTakenError,
 }) => {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
@@ -26,10 +29,24 @@ const RegisterModal = ({
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
+
+    const isInvalidFormat = !validateEmail(value);
+    const isTaken = registeredEmails.includes(value);
+
     setErrors((prev) => ({
       ...prev,
-      email: validateEmail(value) ? "" : "Invalid email address",
+      email:
+        value === ""
+          ? "Email is required"
+          : isInvalidFormat
+          ? "Invalid email address"
+          : "",
     }));
+    if (!isInvalidFormat && isTaken) {
+      setEmailTakenError("This email is already registered.");
+    } else {
+      setEmailTakenError("");
+    }
   };
   const handlePasswordChange = (e) => {
     const value = e.target.value;
@@ -37,7 +54,11 @@ const RegisterModal = ({
     setErrors((prev) => ({
       ...prev,
       password:
-        value.length >= 6 ? "" : "Password must be at least 6 characters long",
+        value === ""
+          ? "Password is required"
+          : value.length >= 6
+          ? ""
+          : "Password must be at least 6 characters long",
     }));
   };
   const handleUsernameChange = (e) => {
@@ -46,21 +67,26 @@ const RegisterModal = ({
     setErrors((prev) => ({
       ...prev,
       username:
-        value.length >= 6 ? "" : "Username must be at least 6 characters long",
+        value === ""
+          ? "Username is required"
+          : value.length >= 6
+          ? ""
+          : "Username must be at least 6 characters long",
     }));
   };
-  // const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   useEffect(() => {
     const isValid =
       validateEmail(email) &&
+      !registeredEmails.includes(email) &&
       password.length >= 6 &&
       username.length >= 6 &&
       !errors.email &&
       !errors.password &&
-      !errors.username;
+      !errors.username &&
+      !emailTakenError;
     setIsSubmitDisabled(!isValid);
-  }, [email, password, username, errors]);
+  }, [email, password, username, errors, emailTakenError, registeredEmails]);
 
   useEffect(() => {
     if (!isOpen) {
@@ -68,8 +94,18 @@ const RegisterModal = ({
       setPassword("");
       setUsername("");
       setErrors({ email: "", password: "", username: "" });
+      setEmailTakenError("");
     }
   }, [isOpen]);
+
+  // useEffect(() => {
+  //   console.log("EMAIL TAKEN ERROR:", emailTakenError);
+  // }, [emailTakenError]);
+
+  // console.log("Validation re-check:", {
+  //   emailTakenError,
+  //   isSubmitDisabled,
+  // });
 
   return (
     <ModalWithForm
@@ -84,7 +120,7 @@ const RegisterModal = ({
       onSubmit={(e) => {
         e.preventDefault();
         handleRegister({ username, email, password });
-        setActiveModal("confirm-register");
+        // setActiveModal("confirm-register");
       }}
       showForm={true}
     >
@@ -133,6 +169,11 @@ const RegisterModal = ({
           <p className="modal__input-error">{errors.username}</p>
         )}
       </label>
+      {emailTakenError && (
+        <p className="modal__input-error modal__input-error_taken-email">
+          {emailTakenError}
+        </p>
+      )}
     </ModalWithForm>
   );
 };

@@ -53,6 +53,11 @@ function App() {
   const [isRegisterSubmitDisabled, setIsRegisterSubmitDisabled] =
     useState(true);
 
+  const [registeredEmails, setRegisteredEmails] = useState([
+    "elise@example.com",
+  ]);
+  const [emailTakenError, setEmailTakenError] = useState("");
+
   const [loginErrors, setLoginErrors] = useState({
     email: "",
     password: "",
@@ -94,12 +99,26 @@ function App() {
     }
   };
 
-  const handleRegister = (values) => {
+  const handleRegister = (/*values*/ { email, password, username }) => {
     // signUp(values)
     //   .then(() => handleLogin(values))
     //   .catch((err) => console.error("Registration failed:", err));
+
+    if (registeredEmails.includes(email)) {
+      // setRegisterErrors((prev) => ({
+      //   ...prev,
+      //   email: "Email already registered",
+      // }));
+      setEmailTakenError("This email is already registered.");
+      setIsRegisterSubmitDisabled(true);
+      return;
+    }
+
+    setRegisteredEmails((prev) => [...prev, email]);
+    setEmailTakenError("");
+
     setTimeout(() => {
-      // handleLogin({ email, password });
+      handleLogin({ email, password });
       setActiveModal("confirm-register");
     }, 500);
   };
@@ -358,6 +377,9 @@ function App() {
           setIsSubmitDisabled={setIsRegisterSubmitDisabled}
           errors={registerErrors}
           setErrors={setRegisterErrors}
+          emailTakenError={emailTakenError}
+          setEmailTakenError={setEmailTakenError}
+          registeredEmails={registeredEmails}
         />
         <ConfirmRegisterModal
           isOpen={activeModal === "confirm-register"}

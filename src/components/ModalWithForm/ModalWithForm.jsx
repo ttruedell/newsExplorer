@@ -19,10 +19,10 @@ function ModalWithForm({
       className={`modal modal__type_${name}  ${isOpen ? "modal_opened" : ""}`}
       onClick={onClose}
     >
-      <div className="modal__content modal__content_confirm-register">
-        <h2 className="modal__header modal__header_confirm-register">
-          {title}
-        </h2>
+      {/*  modal__content_${name}*/} {/* Removed className elements*/}
+      {/*modal__header_${name}  */}
+      <div className={`modal__content `}>
+        <h2 className={`modal__header `}>{title}</h2>
         <img
           className="modal__close-btn"
           type="button"
@@ -34,7 +34,7 @@ function ModalWithForm({
           <form className="modal__form" onSubmit={onSubmit}>
             {children}
             <button
-              className={`modal__submit ${
+              className={`modal__submit modal__submit_type_${name} ${
                 isSubmitDisabled ? "modal__submit_disabled" : ""
               }`}
               id="submit-btn"
