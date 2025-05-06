@@ -90,9 +90,13 @@ function App() {
     //   })
     //   .catch((err) => console.error("Login failed:", err));
 
-    const matchedUser = userData.find(
+    const storedUsers = JSON.parse(localStorage.getItem("users"));
+    const matchedUser = storedUsers.find(
       (user) => user.email === email && user.password === password
     );
+    // const matchedUser = userData.find(
+    //   (user) => user.email === email && user.password === password
+    // );
 
     if (matchedUser) {
       const updatedUser = {
@@ -216,6 +220,15 @@ function App() {
     // }, 1500);
   };
 
+  //For front-end purposes
+  const updateUserInStorage = (updatedUser) => {
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    const updatedUsers = storedUsers.map((user) =>
+      user.email === updatedUser.email ? updatedUser : user
+    );
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+  };
+
   const handleBookmark = (card) => {
     if (!loggedIn) {
       setActiveModal("login");
@@ -248,6 +261,8 @@ function App() {
 
     setCurrentUser(updatedUser);
     localStorage.setItem("user", JSON.stringify(updatedUser));
+
+    updateUserInStorage(updatedUser);
   };
 
   const handleDelete = (cardToDelete) => {
@@ -264,6 +279,8 @@ function App() {
 
     setCurrentUser(updatedUser);
     localStorage.setItem("user", JSON.stringify(updatedUser));
+
+    updateUserInStorage(updatedUser);
   };
 
   const handleShowMore = () => {
@@ -292,6 +309,13 @@ function App() {
       const parsedUser = JSON.parse(storedUser);
       setCurrentUser(parsedUser);
       setLoggedIn(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    const storedUsers = localStorage.getItem("users");
+    if (!storedUsers) {
+      localStorage.setItem("users", JSON.stringify(userData));
     }
   }, []);
 
