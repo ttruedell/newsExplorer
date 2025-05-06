@@ -63,6 +63,8 @@
   font-size: 18px;
   padding: 0;
   cursor: pointer;
+  text-decoration: none;
+  color: #000;
 }
 
 .footer__link_home {
