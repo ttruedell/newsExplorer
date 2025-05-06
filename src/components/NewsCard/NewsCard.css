@@ -81,6 +81,7 @@
 .news-card__keyword {
   padding: 8px 22px;
   margin: 0 0 0 24px;
+  max-width: 115px;
   border-radius: 10px;
   background-color: #fff;
   font-size: 14px;

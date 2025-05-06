@@ -47,6 +47,7 @@ function SearchForm({ query, setQuery, onSearch, error, setSearchErrors }) {
               if (error.keyword) setSearchErrors({ keyword: "" });
             }}
             value={query}
+            maxLength={40}
           />
           <button className="search-form__button">Search</button>
         </div>
