@@ -84,7 +84,7 @@ src/
 ## 📃 Pull Request for Review
 
 Submit this pull request link for Stage 1 review:  
-[🔗 PR to Main](https://github.com/ttruedell/newsExplorer/pull/1)
+[🔗 PR to Main](https://github.com/ttruedell/newsExplorer/pull/2)
 
 ---
 
