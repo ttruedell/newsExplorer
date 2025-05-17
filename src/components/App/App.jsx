@@ -392,6 +392,10 @@ function App() {
                 )
               }
             ></Route>
+            <Route
+              path="*"
+              element={<Navigate to="/" replace={true} />}
+            ></Route>
           </Routes>
           <Footer />
         </div>
