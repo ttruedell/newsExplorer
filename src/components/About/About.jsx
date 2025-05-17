@@ -6,7 +6,7 @@ function About() {
     <section className="about">
       <img src={creator} alt="creator_image" className="about__image" />
       <div className="about__content">
-        <h1 className="about__header">About the Author</h1>
+        <h2 className="about__header">About the Author</h2>
         <p className="about__descritption">
           This block describes the project author. Here you should indicate your
           name, what you do, and which development technologies you know.

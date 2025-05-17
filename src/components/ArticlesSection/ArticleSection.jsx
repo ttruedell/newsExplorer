@@ -18,9 +18,9 @@ function ArticleSection({
     <main className="articles">
       <div className="articles__top-bar">
         <p className="articles__subheading">Saved articles </p>
-        <h1 className="articles__heading">
+        <h2 className="articles__heading">
           Elise, you have {keywords.length || "no"} saved articles
-        </h1>
+        </h2>
         <p className="articles__keywords">
           By keywords: {""}
           {keywords.length > 0 ? (

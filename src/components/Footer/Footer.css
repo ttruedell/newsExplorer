@@ -62,9 +62,12 @@
   font-weight: 400;
   font-size: 18px;
   padding: 0;
-  cursor: pointer;
   text-decoration: none;
   color: #000;
+}
+
+.footer__link:hover {
+  cursor: pointer;
 }
 
 .footer__link_home {
@@ -77,6 +80,9 @@
 
 .footer__link_github {
   order: 3;
+  margin: 8px 0 0 0;
+  height: 24px;
+  width: 24px;
 }
 
 .footer__link_facebook {
@@ -143,6 +149,7 @@
 
   .footer__link_github {
     order: 2;
+    margin: 8px 0 0 0;
   }
 
   .footer__link_facebook {

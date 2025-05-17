@@ -57,8 +57,12 @@
   border: none;
   outline: none;
   color: #fff;
-  cursor: pointer;
   z-index: 9999;
+}
+
+.header__logo:hover,
+.header-saved__logo:hover {
+  cursor: pointer;
 }
 
 .header-saved__logo {
