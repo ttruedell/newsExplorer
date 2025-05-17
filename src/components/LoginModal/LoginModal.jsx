@@ -63,7 +63,7 @@ const LoginModal = ({
     <ModalWithForm
       isOpen={isOpen}
       onClose={handleCloseModal}
-      name="SignInForm"
+      name="sign-in-form"
       title="Sign in"
       buttonTextSubmit="Sign in"
       buttonTextSwitch="Sign up"

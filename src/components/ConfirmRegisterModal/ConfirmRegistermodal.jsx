@@ -6,7 +6,7 @@ const ConfirmRegisterModal = ({ isOpen, handleCloseModal, onSwitchModal }) => {
     <ModalWithForm
       isOpen={isOpen}
       onClose={handleCloseModal}
-      name="RegisterConfirm"
+      name="register-confirm"
       title="Registration successfully completed!"
       onSwitchModal={onSwitchModal}
       isSubmitDisabled={false}

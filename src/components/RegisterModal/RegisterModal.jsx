@@ -111,7 +111,7 @@ const RegisterModal = ({
     <ModalWithForm
       isOpen={isOpen}
       onClose={handleCloseModal}
-      name="RegisterForm"
+      name="register-form"
       title="Sign up"
       buttonTextSubmit="Sign up"
       buttonTextSwitch="Sign in"
