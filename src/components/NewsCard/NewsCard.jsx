@@ -1,10 +1,9 @@
 import "./NewsCard.css";
 import remove from "../../assets/trash.svg";
-import placeholder from "../../assets/random-image-1.jpg";
 import bookmark from "../../assets/bookmark.svg";
 import bookmark_active from "../../assets/bookmark_active.svg";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function NewsCard({
   card,
@@ -18,16 +17,17 @@ function NewsCard({
   const isHome = location.pathname === "/";
   const [showConfirm, setShowConfirm] = useState(false);
   const [hoveringBookmark, setHoveringBookmark] = useState(false);
-  // const [loggedIn, setLoggedIn] = useState(false);
 
   const isBookmarked =
     loggedIn &&
     Array.isArray(savedNews) &&
     savedNews.some((saved) => saved.id === card.id);
 
-  const keywords = Array.isArray(savedNews)
-    ? [...new Set(savedNews.map((card) => card.keyword).filter(Boolean))]
-    : [];
+  // const keywords = Array.isArray(savedNews)
+  //   ? [...new Set(savedNews.map((card) => card.keyword).filter(Boolean))]
+  //   : [];
+
+  const author = card.author.toUpperCase();
 
   return (
     // <div className="news-cards">
@@ -112,9 +112,8 @@ function NewsCard({
           <p className="news-card__date">{formatDate(card.date)}</p>
           <h2 className="news-card__title">{card.title}</h2>
           <p className="news-card__text">{card.text}</p>
-          {/* <h3 className="news-card__author">{card.author}</h3> */}
         </article>
-        <h3 className="news-card__author">{card.author}</h3>
+        <h3 className="news-card__author">{author}</h3>
       </div>
     </li>
     // </div>
