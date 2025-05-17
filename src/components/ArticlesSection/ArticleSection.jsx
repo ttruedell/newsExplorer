@@ -1,6 +1,6 @@
 import "./ArticleSection.css";
 import NewsCard from "../NewsCard/NewsCard";
-import { initialNewsCards } from "../../utils/constants";
+// import { initialNewsCards } from "../../utils/constants";
 
 function ArticleSection({
   loggedIn,

@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import {
   Route,
   Routes,
@@ -18,16 +18,16 @@ import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ConfirmRegisterModal from "../ConfirmRegisterModal/ConfirmRegistermodal";
 
-import { initialNewsCards, userData } from "../../utils/constants";
+import { userData } from "../../utils/constants";
 import { fetchNews, formatDate } from "../../utils/newsApi";
 
-import { signUp, signIn } from "../../utils/auth";
+// import { signUp, signIn } from "../../utils/auth";
 
 function App() {
-  const newsApiBaseUrl =
-    process.env.NODE_ENV === "production"
-      ? "https://nomoreparties.co/news/v2/everything"
-      : "https://newsapi.org/v2/everything";
+  // const newsApiBaseUrl =
+  //   process.env.NODE_ENV === "production"
+  //     ? "https://nomoreparties.co/news/v2/everything"
+  //     : "https://newsapi.org/v2/everything";
 
   const location = useLocation();
 
@@ -73,9 +73,9 @@ function App() {
     keyword: "",
   });
 
-  const handleRegisterClick = () => {
-    setActiveModal("confirm-register");
-  };
+  // const handleRegisterClick = () => {
+  //   setActiveModal("confirm-register");
+  // };
 
   const handleLoginClick = () => {
     setActiveModal("login");
@@ -111,7 +111,7 @@ function App() {
     }
   };
 
-  const handleRegister = (/*values*/ { email, password, username }) => {
+  const handleRegister = (/*values*/ { email, password}) => {
     // signUp(values)
     //   .then(() => handleLogin(values))
     //   .catch((err) => console.error("Registration failed:", err));

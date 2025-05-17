@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const RegisterModal = ({
   isOpen,
-  setActiveModal,
   handleCloseModal,
   onSwitchModal,
   validateEmail,

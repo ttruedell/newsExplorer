@@ -1,7 +1,7 @@
 import "./Preloader.css";
 import ellipse from "../../assets/ellipse.svg";
 import notFound from "../../assets/not-found.svg";
-import { initialNewsCards } from "../../utils/constants";
+// import { initialNewsCards } from "../../utils/constants";
 import NewsCard from "../NewsCard/NewsCard";
 
 function Preloader({
