@@ -3,12 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-import logout from "../../assets/logout.png";
-import logout_home from "../../assets/logout2.png";
+import logout from "../../assets/logout.svg";
+import logout_home from "../../assets/logout2.svg";
 
-import close from "../../assets/close.png";
-import menuBlack from "../../assets/menu.png";
-import menuWhite from "../../assets/menu2.png";
+import close from "../../assets/close.svg";
+import menuBlack from "../../assets/menu.svg";
+import menuWhite from "../../assets/menu2.svg";
 
 function Navigation({
   loginClick,

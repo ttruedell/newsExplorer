@@ -1,5 +1,5 @@
 import "./NewsCard.css";
-import remove from "../../assets/trash.jpg";
+import remove from "../../assets/trash.svg";
 import placeholder from "../../assets/random-image-1.jpg";
 import bookmark from "../../assets/bookmark.svg";
 import bookmark_active from "../../assets/bookmark_active.svg";

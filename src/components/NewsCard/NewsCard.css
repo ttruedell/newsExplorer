@@ -116,8 +116,10 @@
 }
 
 .news-card__remove-icon {
-  height: 19px;
-  width: 18px;
+  /* height: 19px;
+  width: 18px; */
+  height: 24px;
+  width: 24px;
   margin: 0;
   padding: 0;
   margin: 0;
