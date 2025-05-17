@@ -8,6 +8,16 @@ A responsive, single-page news aggregator app built with React and Vite. Users c
 
 ---
 
+## 🔑 Test Credentials
+
+Since registration is not currently functional on the frontend, use the following login to access the **Saved Articles** feature:
+
+- Email: test-user@example.com
+
+- Password: example3456
+
+---
+
 ## 📌 Features
 
 - 🔍 Search for news using keywords

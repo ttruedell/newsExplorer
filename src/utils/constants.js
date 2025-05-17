@@ -74,4 +74,10 @@ export const userData = [
     password: "example2345",
     savedNews: [],
   },
+  {
+    username: "User",
+    email: "test-user@example.com",
+    password: "example3456",
+    savedNews: [],
+  },
 ];
