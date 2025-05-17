@@ -29,6 +29,7 @@ function NewsCard({
 
   const author = card.author.toUpperCase();
 
+  const articleOpen = () => window.open(card.url, "_blank");
   return (
     // <div className="news-cards">
     <li className="news-card">
@@ -102,12 +103,8 @@ function NewsCard({
         </div>
       )}
 
-      <div className="news-card__content">
-        <img
-          className="news-card__image"
-          src={card.image}
-          alt="article-image"
-        />
+      <div className="news-card__content" onClick={articleOpen} role="link">
+        <img className="news-card__image" src={card.image} alt={card.title} />
         <article className="news-card__article">
           <p className="news-card__date">{formatDate(card.date)}</p>
           <h2 className="news-card__title">{card.title}</h2>

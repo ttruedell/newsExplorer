@@ -111,7 +111,7 @@ function App() {
     }
   };
 
-  const handleRegister = (/*values*/ { email, password}) => {
+  const handleRegister = (/*values*/ { email, password }) => {
     // signUp(values)
     //   .then(() => handleLogin(values))
     //   .catch((err) => console.error("Registration failed:", err));
@@ -191,6 +191,7 @@ function App() {
           text: a.description,
           author: a.source.name,
           image: a.urlToImage,
+          url: a.url,
           keyword: query,
         }));
         console.log(query);
