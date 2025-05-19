@@ -8,7 +8,7 @@
   justify-content: center;
   /* align-items: flex-start; */
   align-items: center;
-  font-family: "Roboto";
+  font-family: "Roboto", "Times New Roman", Times, serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
@@ -24,7 +24,7 @@
 }
 
 .preloader__show-more {
-  font-family: "Roboto";
+  font-family: "Roboto", "Times New Roman", Times, serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
@@ -89,7 +89,7 @@
 
 .preloader__header {
   margin: 32px 0 16px 0;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", "Times New Roman", Times, serif;
   font-size: 26px;
   font-weight: 400;
   line-height: 30px;

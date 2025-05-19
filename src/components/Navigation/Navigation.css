@@ -1,7 +1,7 @@
 .navigation {
   position: absolute;
   right: 104px;
-  font-family: "Roboto";
+  font-family: "Roboto", "Times New Roman", Times, serif;
   font-size: 18px;
   font-weight: 500;
 }
@@ -68,9 +68,12 @@
   border-color: #fff;
   background-color: transparent;
   color: #fff;
-  cursor: pointer;
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
+}
+
+.navigation__btn:hover {
+  cursor: pointer;
 }
 
 .navigation__btn.active {

@@ -31,6 +31,9 @@
   background-color: transparent;
   height: 40px;
   width: 40px;
+}
+
+.modal__close-btn:hover {
   cursor: pointer;
 }
 
@@ -66,7 +69,7 @@
 
 .modal__header {
   margin: 0;
-  font-family: "Roboto";
+  font-family: "Roboto", "Times New Roman", Times, serif;
   font-size: 24px;
   font-weight: 900;
   line-height: 32px;
@@ -78,7 +81,7 @@
 }
 
 .modal__input-header {
-  font-family: "Inter";
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: auto;
@@ -93,7 +96,7 @@
 
 .modal__input {
   padding: 9px 0 11px 0;
-  font-family: "Inter";
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: auto;
@@ -102,6 +105,10 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   outline: none;
   transition: border-color 0.3s ease-in-out;
+}
+
+.modal__input:hover {
+  cursor: pointer;
 }
 
 .modal__input:focus,
@@ -116,7 +123,7 @@
 
 .modal__input-error {
   margin: 4px 0 0;
-  font-family: "Inter";
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 12px;
   color: red;
 }
@@ -127,7 +134,7 @@
 }
 
 .modal__submit {
-  font-family: "Roboto";
+  font-family: "Roboto", "Times New Roman", Times, serif;
   font-weight: 500;
   font-style: 18px;
   margin: 43px 0 16px 0;
@@ -138,8 +145,11 @@
   border: none;
   color: #fff;
   background-color: #2f71e5;
-  cursor: pointer;
   transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.modal__submit:hover {
+  cursor: pointer;
 }
 
 .modal__submit_type_RegisterForm {
@@ -157,7 +167,7 @@
   border: none;
   background-color: transparent;
 
-  font-family: "Roboto";
+  font-family: "Roboto", "Times New Roman", Times, serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 18px;
@@ -178,7 +188,7 @@
 }
 
 .modal__switch-text {
-  font-family: "Inter";
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 14px;
 }
@@ -191,6 +201,9 @@
 
 .modal__switch-text_signin {
   margin: 0;
+}
+
+.modal__switch-text_signin:hover {
   cursor: pointer;
 }
 

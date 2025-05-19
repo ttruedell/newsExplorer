@@ -15,7 +15,7 @@
 
 .news-cards__results-header {
   margin: 0;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", "Times New Roman", Times, serif;
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
@@ -38,7 +38,7 @@
   align-items: center;
   /* width: 100%; */
   padding: 24px 0 0 0;
-  font-family: "Roboto";
+  font-family: "Roboto", "Times New Roman", Times, serif;
   font-weight: 500;
   /* top: 24px; */
   z-index: 99;
@@ -154,7 +154,7 @@
   flex-direction: column;
   position: relative;
   padding: 17px 24px 0px 24px;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", "Times New Roman", Times, serif;
   font-size: 26px;
   line-height: 30px;
   letter-spacing: 0;
@@ -162,7 +162,8 @@
 
 .news-card__date {
   margin: 0;
-  font-family: "Source Sans Pro";
+  font-family: "Source Sans Pro", "Segoe UI", Tahoma, "Geneva", Verdana,
+    sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
@@ -196,7 +197,7 @@
   left: 24px;
   right: 24px;
   margin: 0;
-  font-family: "Roboto";
+  font-family: "Roboto", "Times New Roman", Times, serif;
   font-size: 16px;
   line-height: 22px;
   max-height: 110px;

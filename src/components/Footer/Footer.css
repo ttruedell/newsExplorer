@@ -12,7 +12,7 @@
   box-sizing: border-box;
   position: relative;
 
-  font-family: "Roboto";
+  font-family: "Roboto", "Times New Roman", Times, serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
@@ -58,7 +58,7 @@
 }
 
 .footer__link {
-  font-family: "Roboto";
+  font-family: "Roboto", "Times New Roman", Times, serif;
   font-weight: 400;
   font-size: 18px;
   padding: 0;
