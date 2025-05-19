@@ -1,5 +1,7 @@
 import "./ArticleSection.css";
 import NewsCard from "../NewsCard/NewsCard";
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 // import { initialNewsCards } from "../../utils/constants";
 
 function ArticleSection({
@@ -14,12 +16,16 @@ function ArticleSection({
     ...new Set(savedNews.map((card) => card.keyword).filter(Boolean)),
   ];
 
+  const currentUser = useContext(CurrentUserContext);
+
+  const username = currentUser?.username || "User";
+
   return (
     <main className="articles">
       <div className="articles__top-bar">
         <p className="articles__subheading">Saved articles </p>
         <h2 className="articles__heading">
-          Elise, you have {keywords.length || "no"} saved articles
+          {username}, you have {keywords.length || "no"} saved articles
         </h2>
         <p className="articles__keywords">
           By keywords: {""}
