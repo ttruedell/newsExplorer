@@ -16,7 +16,7 @@ function ModalWithForm({
 }) {
   return (
     <div
-      className={`modal modal__type_${name}  ${isOpen ? "modal_opened" : ""}`}
+      className={`modal modal_type_${name}  ${isOpen ? "modal_opened" : ""}`}
       onClick={onClose}
     >
       {/*  modal__content_${name}*/} {/* Removed className elements*/}
