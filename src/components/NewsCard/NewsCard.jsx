@@ -31,7 +31,7 @@ function NewsCard({
 
   const articleOpen = () => window.open(card.url, "_blank");
   return (
-    // <div className="news-cards">
+    // <div className="news-cards__">
     <li className="news-card">
       {isHome ? (
         <div

@@ -24,9 +24,9 @@ function ArticleSection({
     <main className="articles">
       <div className="articles__top-bar">
         <p className="articles__subheading">Saved articles </p>
-        <h2 className="articles__heading">
+        <h1 className="articles__heading">
           {username}, you have {keywords.length || "no"} saved articles
-        </h2>
+        </h1>
         <p className="articles__keywords">
           By keywords: {""}
           {keywords.length > 0 ? (
@@ -40,21 +40,24 @@ function ArticleSection({
           )}
         </p>
       </div>
-      <ul className="news-cards">
-        {
-          /*initialNewsCards*/ savedNews
-            // .slice(0, visibleCount)
-            .map((card, index) => (
-              <NewsCard
-                key={index}
-                card={card}
-                loggedIn={loggedIn}
-                deleteCard={handleDelete}
-                formatDate={formatDate}
-              />
-            ))
-        }
-      </ul>
+      <div className="news-cards__wrapper">
+        <ul className="news-cards">
+          {
+            /*initialNewsCards*/ savedNews
+              // .slice(0, visibleCount)
+              .map((card, index) => (
+                <NewsCard
+                  key={index}
+                  card={card}
+                  loggedIn={loggedIn}
+                  deleteCard={handleDelete}
+                  formatDate={formatDate}
+                />
+              ))
+          }
+        </ul>
+      </div>
+
       {/* {savedNews.length > visibleCount && (
         <button className="articles__show-more" onClick={handleShowMore}>
           Show More
