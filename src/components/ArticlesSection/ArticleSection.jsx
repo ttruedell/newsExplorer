@@ -25,7 +25,7 @@ function ArticleSection({
       <div className="articles__top-bar">
         <p className="articles__subheading">Saved articles </p>
         <h1 className="articles__heading">
-          {username}, you have {keywords.length || "no"} saved articles
+          {username}, you have {savedNews.length || "no"} saved articles
         </h1>
         <p className="articles__keywords">
           By keywords: {""}
