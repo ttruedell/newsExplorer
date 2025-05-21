@@ -1,0 +1,243 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0000004d;
+  display: flex;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  z-index: 100000;
+}
+
+.modal_opened {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  height: 40px;
+  width: 40px;
+}
+
+.modal__close-btn:hover {
+  cursor: pointer;
+}
+
+.modal__content {
+  border: 1px solid #0000004d;
+  border-radius: 16px;
+  position: relative;
+  background-color: #fff;
+  max-width: 430px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 34px 36px 28px 36px;
+}
+
+/* .modal__content_confirm-register {
+  padding: 42px 36px 50px 36px;
+} */
+
+/* .modal__content_RegisterForm {
+  padding: 34px 36px 28px 36px;
+} */
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.modal__label {
+  width: 100%;
+}
+
+.modal__header {
+  margin: 0;
+  font-family: "Roboto", "Times New Roman", Times, serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 32px;
+  text-align: left;
+}
+
+.modal__header_confirm-register {
+  line-height: 28px;
+}
+
+.modal__input-header {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: auto;
+
+  margin: 31px 0 0 0;
+  color: #2f71e5;
+}
+
+.modal__input-header:first-child {
+  margin: 22px 0 0 0;
+}
+
+.modal__input {
+  padding: 9px 0 11px 0;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: auto;
+  width: 358px;
+  border-style: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.modal__input:hover {
+  cursor: pointer;
+}
+
+.modal__input:focus,
+.modal__input:not(:placeholder-shown) {
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+
+.modal__input_password {
+  -webkit-text-security: disc;
+  -moz-text-security: disc;
+}
+
+.modal__input-error {
+  margin: 4px 0 0;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: red;
+}
+
+.modal__input-error_taken-email {
+  position: absolute;
+  bottom: 110px;
+}
+
+.modal__submit {
+  font-family: "Roboto", "Times New Roman", Times, serif;
+  font-weight: 500;
+  font-style: 18px;
+  margin: 43px 0 16px 0;
+  padding: 0;
+  width: 100%;
+  height: 64px;
+  border-radius: 100px;
+  border: none;
+  color: #fff;
+  background-color: #2f71e5;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.modal__submit:hover {
+  cursor: pointer;
+}
+
+.modal__submit_type_RegisterForm {
+  margin: 39px 0 16px 0;
+}
+
+.modal__submit_disabled {
+  background-color: #d1d2d6;
+  color: #b6bcbf;
+}
+
+.modal__sign-in {
+  margin: 14px 0 0 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+
+  font-family: "Roboto", "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+  color: #2f71e5;
+}
+
+.modal__switch-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  line-height: 20px;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: #2f71e5;
+}
+
+.modal__switch-text {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.modal__switch-text_or {
+  margin: 0;
+  color: #000;
+  cursor: default;
+}
+
+.modal__switch-text_signin {
+  margin: 0;
+}
+
+.modal__switch-text_signin:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 525px) {
+  .modal__close-btn {
+    top: -50px;
+    right: 4px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .modal {
+    background-color: transparent;
+  }
+
+  .modal__close-btn {
+    top: -50px;
+    right: 16px;
+    height: 24px;
+    width: 24px;
+  }
+
+  .modal__content {
+    top: 65px;
+    height: 100%;
+    max-width: 430px;
+    padding: 16px 17px 0 16px;
+  }
+
+  .modal__input {
+    width: 100%;
+  }
+
+  .modal__submit {
+    margin: 23px 0 16px 0;
+  }
+}

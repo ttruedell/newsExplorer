@@ -1,0 +1,261 @@
+.navigation {
+  position: absolute;
+  right: 104px;
+  font-family: "Roboto", "Times New Roman", Times, serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.navigation__active {
+  color: #000;
+  border-color: #000;
+}
+
+.navigation__list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  gap: 33px;
+  list-style: none;
+}
+
+.navigation__link {
+  margin: 0;
+  height: 100%;
+  padding: 30px 0 27px 0;
+  border: none;
+  border-bottom: 3px solid #fff;
+  color: #fff;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.navigation__link:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.navigation__link_home {
+  padding: 30px 9px 27px 9px;
+}
+
+.navigation__link_news {
+  padding: 30x 32px 27px 32px;
+  border-color: transparent;
+}
+
+.navigation__link_home.active {
+  color: #000;
+  border-color: transparent;
+}
+
+.navigation__link_news.active {
+  color: #000;
+  border-color: #000;
+}
+
+.navigation__btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 176px;
+  height: 48px;
+  font-weight: 500;
+  border-radius: 100px;
+  border-width: 1px;
+  border-color: #fff;
+  background-color: transparent;
+  color: #fff;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.navigation__btn:hover {
+  cursor: pointer;
+}
+
+.navigation__btn.active {
+  border-color: #000;
+}
+
+.navigation__btn:hover {
+  opacity: 0.5;
+}
+
+.navigation__btn_user {
+  width: auto;
+  padding: 12px 10px 12px 20px;
+}
+
+.navigation__username {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}
+
+.navigation__sign-out-icon {
+  padding-left: 14px;
+  height: 24px;
+  width: 24px;
+}
+
+.navigation__menu-toggle {
+  display: block;
+  position: absolute;
+  top: 16px;
+  padding: 0;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  border: 0;
+  z-index: 9999;
+}
+
+.navigation__menu-toggle:hover {
+  cursor: pointer;
+}
+
+.navigation__menu-toggle_hidden {
+  display: none;
+}
+
+.navigation__menu-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  transition: opacity 0.1s ease-in;
+}
+
+.navigation__menu-icon.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.navigation__dropdown {
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  position: fixed;
+  max-width: 100vw;
+  background-color: #0000004d;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in 0.1s, visibility 0.4s ease-in 0.1s;
+  z-index: 998;
+}
+
+.navigation__dropdown.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.navigation__dropdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  overflow: hidden;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  min-height: 230px;
+  padding: 82px 16px 0px 16px;
+  background-color: #1a1b22;
+  z-index: 999;
+}
+
+.navigation__dropdown-content.active {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.navigation__dropdown-inner {
+  padding: 0 168px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 288px;
+}
+
+.navigation__dropdown-link {
+  margin: 0 auto;
+  text-align: left;
+  color: #fff;
+  font-size: 18px;
+  line-height: 56px;
+}
+
+.navigation__dropdown-link:hover {
+  cursor: pointer;
+}
+
+.navigation__dropdown-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 288px;
+  height: 56px;
+  border-radius: 100px;
+  border: 1px solid #fff;
+}
+
+.navigation__dropdown-btn:hover {
+  cursor: pointer;
+}
+/*************************/
+/*************************/
+/*************************/
+
+@media screen and (max-width: 880px) {
+  .navigation {
+    height: 100%;
+    right: 40px;
+    font-size: 16px;
+  }
+
+  .navigation__btn_user {
+    padding: 8px 13px 8px 15px;
+  }
+
+  .navigation__list {
+    height: 100%;
+  }
+
+  .navigation__link_home {
+    padding: 23px 9px 23px 9px;
+  }
+
+  .navigation__link_news {
+    padding: 23px 28px 23px 29px;
+  }
+
+  .navigation__btn {
+    height: 40px;
+  }
+
+  .navigation__btn_user {
+    padding: 8px 13px 8px 15px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  /* .navigation__dropdown-content {
+    padding: 82px 100px 0px 100px;
+  } */
+}

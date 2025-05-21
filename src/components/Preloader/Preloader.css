@@ -1,0 +1,121 @@
+.preloader {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* align-items: flex-start; */
+  align-items: center;
+  font-family: "Roboto", "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0;
+  background-color: #f5f6f7;
+}
+
+.prelaoder__found-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader__show-more {
+  font-family: "Roboto", "Times New Roman", Times, serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+
+  display: block;
+  margin: 32px 0 80px 0;
+  padding: 20px 98px;
+  border-radius: 80px;
+  text-align: center;
+  color: #000;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.preloader__show-more:hover {
+  background-color: #e8e8e8;
+  cursor: pointer;
+}
+
+.prelaoder__no-results {
+  height: 374px;
+  /* margin: 86px 0 80px 0; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.preloader__icon {
+  height: 83px;
+  width: 83px;
+}
+
+.prelaoder__loading {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 23px;
+  padding: 80px 0;
+}
+
+.preloader__circle-preloader {
+  display: block;
+  width: 74px;
+  height: 74px;
+  border: 1px solid #444;
+  border-bottom-color: #888;
+  border-radius: 50%;
+  /* position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; */
+  animation: spin 0.75s infinite linear;
+}
+
+.preloader__header {
+  margin: 32px 0 16px 0;
+  font-family: "Roboto Slab", "Times New Roman", Times, serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.prelaoder__text {
+  color: #b6bcbf;
+  margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .preloader__show-more {
+    margin: 0 0 40px 0;
+    padding: 16px 74px;
+  }
+}
+
+@media screen and (max-width: 536px) {
+  .preloader__show-more {
+    margin: 0 0 24px 0;
+    padding: 16px 98px;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
