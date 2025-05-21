@@ -85,7 +85,16 @@ const RegisterModal = ({
       !errors.username &&
       !emailTakenError;
     setIsSubmitDisabled(!isValid);
-  }, [email, password, username, errors, emailTakenError, registeredEmails]);
+  }, [
+    email,
+    password,
+    username,
+    errors,
+    emailTakenError,
+    registeredEmails,
+    setIsSubmitDisabled,
+    validateEmail,
+  ]);
 
   useEffect(() => {
     if (!isOpen) {
@@ -95,7 +104,14 @@ const RegisterModal = ({
       setErrors({ email: "", password: "", username: "" });
       setEmailTakenError("");
     }
-  }, [isOpen]);
+  }, [
+    isOpen,
+    setEmail,
+    setEmailTakenError,
+    setErrors,
+    setPassword,
+    setUsername,
+  ]);
 
   // useEffect(() => {
   //   console.log("EMAIL TAKEN ERROR:", emailTakenError);

@@ -302,7 +302,7 @@ function App() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [activeModal]);
+  });
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");

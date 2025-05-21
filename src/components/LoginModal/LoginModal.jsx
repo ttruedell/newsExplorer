@@ -39,17 +39,13 @@ const LoginModal = ({
   // const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   useEffect(() => {
-    console.log("Email:", email);
-    console.log("Password:", password);
-    console.log("Errors:", errors);
-
     const isValid =
       validateEmail(email) &&
       password.length >= 6 &&
       errors.email === "" &&
       errors.password === "";
     setIsSubmitDisabled(!isValid);
-  }, [email, password, errors]);
+  }, [email, password, errors, setIsSubmitDisabled, validateEmail]);
 
   useEffect(() => {
     if (!isOpen) {
@@ -57,7 +53,7 @@ const LoginModal = ({
       setPassword("");
       setErrors({ email: "", password: "" });
     }
-  }, [isOpen]);
+  }, [isOpen, setEmail, setPassword, setErrors]);
 
   return (
     <ModalWithForm

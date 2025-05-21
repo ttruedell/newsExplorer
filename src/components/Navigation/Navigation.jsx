@@ -46,7 +46,7 @@ function Navigation({
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [setMenuOpen]);
 
   const handleToggleMenu = () => setMenuOpen(!menuOpen);
   const handleSignOut = () => {

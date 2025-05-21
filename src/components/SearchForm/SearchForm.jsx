@@ -21,7 +21,7 @@ function SearchForm({ query, setQuery, onSearch, error, setSearchErrors }) {
   useEffect(() => {
     setQuery("");
     setSearchErrors({ keyword: "" });
-  }, [location]);
+  }, [location, setQuery, setSearchErrors]);
 
   return (
     // <section>
